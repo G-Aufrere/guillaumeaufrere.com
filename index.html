@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <title>Portfolio de Guillaume Aufrere</title>
+    <meta name="description" content="Guillaume Aufrere, Développeur web front-end" />
+</head>
+
+<body id="mainPage">
+
+    <header>
+        <div id="navLogo"><a href="">Logo</a></div>
+        <svg class="hamburger" viewBox="0 0 80 80">
+            <line class="line01" x1="0" y1="3" x2="80" y2="3" />
+            <line class="line02" x1="0" y1="40" x2="80" y2="40" />
+            <line class="line03" x1="0" y1="77" x2="80" y2="77" />
+        </svg>
+    </header>
+
+    <div class="menu">
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item home">
+                    <a class="nav__link" href="">Accueil</a>
+                </li>
+                <li class="nav__item about">
+                    <a class="nav__link" href="">About</a>
+                </li>
+                <li class="nav__item works">
+                    <a class="nav__link" href="">Works</a>
+                </li>
+                <li class="nav__item contact">
+                    <a class="nav__link" href="">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="mainContent">
+        <div class="panel panel__home">
+            <div class="home__vertical-content">
+                <div class="home__vertical-content__item__logo">
+                    <img src="img/codepen.png" alt="">
+                </div>
+                <div class="home__vertical-content__item__socials">
+                    <img src="img/github.png" alt="">
+                    <img src="img/linkedin.png" alt="">
+                </div>
+            </div>
+            <div class="home__centered-content">
+                <h2 class="home__centered-content__title title_top">
+                    GUILLAUME
+                </h2>
+                <h2 class="home__centered-content__title title_midtop">
+                    AUFRERE
+                </h2>
+                <h2 class="home__centered-content__title title_midbottom">
+                    DEVELOPPEUR
+                </h2>
+                <h2 class="home__centered-content__title title_bottom">
+                    FRONT-END
+                </h2>
+            </div>
+        </div>
+
+        <div class="panel panel__about"></div>
+
+        <div class="panel panel__works"></div>
+
+        <div class="panel panel__contact"></div>
+    </div>
+</body>
+
+<!--<script src="https://cdn.jsdelivr.net/npm/@ashthornton/asscroll@2.0.4/build/asscroll.min.js"></script>-->
+<script src="https://unpkg.com/vue@3"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollToPlugin.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+<script src="js/scrollTrigger.js"></script>
+
+</html>
