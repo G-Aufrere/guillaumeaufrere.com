@@ -14,7 +14,6 @@ let scrollTween = gsap.to(sections, {
     }
 });
 
-
 // helper function for causing the sections to always snap in the direction of the scroll (next section) rather than whichever section is "closest" when scrolling stops.
 // function directionalSnap(increment) {
 //   let snapFunc = gsap.utils.snap(increment);

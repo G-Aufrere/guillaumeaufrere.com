@@ -5,10 +5,11 @@
 
 
 @font-face {
-    font-family: 'Moluska';
-    src: url('/public/fonts/Moluska.ttf') format('ttf');
-    src: url('/public/fonts/Moluska.otf') format('otf');
-    src: url('/public/fonts/Moluska.woff') format('woff');
+    font-family: 'Helvetica';
+    src: url('/public/fonts/Helvetica.ttf') format('ttf');
+    src: url('/public/fonts/Helvetica-Bold.ttf') format('ttf');
+    src: url('/public/fonts/Helvetica-Oblique.ttf') format('ttf');
+    src: url('/public/fonts/helvetica-light-587ebe5a59211.ttf') format('ttf');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -27,7 +28,7 @@
 
 body {
     overflow: hidden;
-    font-family: 'Moluska';
+    font-family: 'Helvetica';
 }
 
 #mainContent {
@@ -36,17 +37,13 @@ body {
     width: 400%;
     display: flex;
     flex-wrap: nowrap;
-    background-image: url('/img/untitled.png');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: local;
 }
 
 .panel__home {
-    /*background: url('/img/blade.png');
+    background: url('/img/blade.png');
     background-position: center;
-    background-size: cover;*/
+    background-size: cover;
+    //background: url('/img/untitled.png');
     position: relative;
     height: 100vh;
     max-width: 100vw;
@@ -124,6 +121,8 @@ body {
 
     &__about {
         //background-color: rgb(216, 153, 18);
+        background: url('/img/untitled.png');
+        background-size: cover;
         display: flex;
 
         .about__content {
@@ -142,6 +141,7 @@ body {
 
             &__text {
                 width: 40%;
+                font-family: 'Helvetica';
                 color: rgb(255, 255, 255);
                 line-height: 1.5;
 
@@ -159,11 +159,15 @@ body {
         }
     }
 
-    /*&__works {
-        background-color: rgb(216, 109, 9);
+    &__works {
+        //background-color: rgb(216, 109, 9);
+        background: url('/img/untitled.png');
+        background-size: cover;
     }
 
     &__contact {
-        background-color: rgb(126, 29, 22);
-    }*/
+        //background-color: rgb(126, 29, 22);
+        background: url('/img/untitled.png');
+        background-size: cover;
+    }
 }
