@@ -1,24 +1,40 @@
-gsap.registerPlugin(ScrollTrigger);
+// Section Pinning
+gsap.utils.toArray(".section").forEach((section) => {
 
-let sections = gsap.utils.toArray(".panel");
+    if (section.classList.contains('horizontal')) {
 
-let scrollTween = gsap.to(sections, {
-    xPercent: -100 * (sections.length - 1),
-    ease: "none", // <-- IMPORTANT!
-    scrollTrigger: {
-        trigger: "#mainContent",
-        pin: true,
-        scrub: 1,
-        //snap: directionalSnap(1 / (sections.length - 1)),
-        end: "+=3000"
+        const containersWrap = section.querySelector('.section__containers')
+        const oneContainer = section.querySelector('.section__container')
+
+        gsap.to(containersWrap, {
+            //x: () => { return -( (cardsWrap.scrollWidth - window.innerWidth + window.innerWidth*0.05) + (window.innerWidth/2 - oneCard.offsetWidth/2) ) },
+            x: () => {
+                return -(containersWrap.scrollWidth - oneContainer.offsetWidth)
+            },
+            ease: "none",
+            scrollTrigger: {
+                trigger: section,
+                start: () => "center center",
+                end: () => "+=" + (containersWrap.scrollWidth - oneContainer.offsetWidth),
+                scrub: 1,
+                pin: true,
+                invalidateOnRefresh: true,
+                anticipatePin: 0,
+            },
+        });
+
+    } else {
+
+        ScrollTrigger.create({
+            trigger: section,
+            start: () => "top top",
+            end: "+=100px",
+            scrub: 1,
+            pin: false,
+            anticipatePin: 1,
+            //pinSpacing: true
+        });
+
     }
-});
 
-// helper function for causing the sections to always snap in the direction of the scroll (next section) rather than whichever section is "closest" when scrolling stops.
-// function directionalSnap(increment) {
-//   let snapFunc = gsap.utils.snap(increment);
-//   return (raw, self) => {
-//     let n = snapFunc(raw);
-//     return Math.abs(n - raw) < 1e-4 || (n < raw) === self.direction < 0 ? n : self.direction < 0 ? n - increment : n + increment;
-//   };
-// }
+});

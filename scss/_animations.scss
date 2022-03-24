@@ -1,0 +1,48 @@
+$delay: 0.015s;
+$duration: 0.6s;
+$easing: cubic-bezier(0.76, 0, 0.24, 1);
+
+.rolling-text {
+    display: inline-block;
+    //font-family: 'Playfair Display', serif;
+    $font-size: 12vmin;
+    font-size: $font-size;
+    line-height: $font-size * 1.5;
+    //letter-spacing: $font-size / 2;
+    height: $font-size * 1.5;
+    text-decoration: none;
+    overflow: hidden;
+    //color: #1a1a1a;
+
+    &:hover,
+    &.play {
+        .letter {
+            transform: translateY(-100%);
+        }
+    }
+
+    .letter {
+        display: inline-block;
+        transition: transform $duration $easing;
+    }
+
+    &__fill {
+        .block:last-child {
+            color: #ffffff;
+        }
+    }
+
+    &__empty {
+        .block:last-child {
+            color: transparent;
+            -webkit-text-stroke: 1px white;
+        }
+    }
+}
+
+
+@for $i from 0 through 20 {
+    .letter:nth-child(#{$i + 1}) {
+        transition-delay: $delay * $i;
+    }
+}
