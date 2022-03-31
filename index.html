@@ -28,10 +28,10 @@
                     cursor-class="arrow"></a>
         </div>
         <div class="vertical-content__item__socials">
-            <a href="https://www.linkedin.com/in/guillaume-aufrere-d%C3%A9veloppeur-web/"><img class="linkedin_logo"
-                    src="img/linkedin-logo.png" alt="" cursor-class="arrow"></a>
-            <a href="https://github.com/G-Aufrere-DWJ"><img class="github_logo" src="img/github-64.png" alt=""
-                    cursor-class="arrow"></a>
+            <a href="https://www.linkedin.com/in/guillaume-aufrere-d%C3%A9veloppeur-web/" target="_blank"><img
+                    class="linkedin_logo" src="img/linkedin-logo.png" alt="" cursor-class="arrow"></a>
+            <a href="https://github.com/G-Aufrere-DWJ" target="_blank"><img class="github_logo" src="img/github-64.png"
+                    alt="" cursor-class="arrow"></a>
         </div>
     </div>
 
@@ -39,16 +39,16 @@
         <nav class="nav">
             <ul class="nav__list">
                 <li class="nav__item home">
-                    <a class="nav__link" cursor-class="arrow" href="">Accueil</a>
+                    <a class="nav__link" cursor-class="arrow" href="#home">Accueil</a>
                 </li>
                 <li class="nav__item about">
-                    <a class="nav__link" cursor-class="arrow" href="">A propos</a>
+                    <a class="nav__link" cursor-class="arrow" href="#about">A propos</a>
                 </li>
                 <li class="nav__item works">
-                    <a class="nav__link" cursor-class="arrow" href="">Works</a>
+                    <a class="nav__link" cursor-class="arrow" href="#works">Works</a>
                 </li>
                 <li class="nav__item contact">
-                    <a class="nav__link" cursor-class="arrow" href="">Contact</a>
+                    <a class="nav__link" cursor-class="arrow" href="#contact">Contact</a>
                 </li>
             </ul>
         </nav>
@@ -76,15 +76,23 @@
                         FRONT-END
                     </h2>
                 </div>
+                <div class="btn-circle">
+                    <div class="btn-circle__icon">
+                        <img src="img/arr.png" alt="button scroll">
+                    </div>
+                    <div class="btn-circle__img">
+                        <img src="img/scroll.png" alt="">
+                    </div>
+                </div>
             </section>
 
-            <section class="section section__about">
+            <section class="section section__about" id="about">
                 <h1 class="section__title">A propos</h1>
                 <div class="section__container">
                     <div class="section__container__img">
-                        <img src="img/profil.png" class="profil-picture skewElem" alt="photo Profil">
+                        <img src="img/rounded.png" class="profil-picture skewElem" alt="photo Profil">
                     </div>
-                    <div class="section__container__text">
+                    <div class="section__container__text middle">
                         <p class="text_about first_para">
                             Je suis un développeur frontend originaire de <strong
                                 class="bourges__hover">Bourges</strong>, disponible pour des
@@ -94,8 +102,11 @@
                         <p class="text_about second_para">
                             Mon but est de créer des sites web interactifs et accessibles sur tous les supports.
                         </p>
+                    </div>
+                    <div class="section__container__text right">
                         <p class="text_about third_para">
-                            Je m'intéresse depuis peu à tout ce qui touche aux animations, que ce soit en 2D ou en 3D.
+                            Je m'intéresse depuis peu à tout ce qui touche aux animations, que ce soit en 2D ou en
+                            3D.
                             J'éspère rendre cette intérêt visible sur mes prochains projets.
                             Rendre un site web vivant est désormais devenu une priotité pour moi.
                         </p>
@@ -103,7 +114,7 @@
                             HTML CSS/SASS JS <br>
                             GSAP <br>
                             WORDPRESS <br>
-                            BULMA BOOTSTRAP <br>
+                            GITHUB BULMA BOOTSTRAP <br>
                             En apprentissage : <br>
                             Vue.js Three.js WebGL
                         </p>
@@ -112,24 +123,48 @@
             </section>
         </div>
 
-        <section class="section horizontal section__works">
+        <section class="section horizontal section__works" id="works">
             <h1 class="section__title">Works</h1>
             <div class="section__containers">
+                <div class="section__container first-projects">
+                    <h2 class="section__title first-project" cursor-class="arrow">RM STUDIO</h2>
+                    <div class="section__container__img" cursor-class="arrow">
+                        <img src="img/rmstudio-thumbnail.png" alt="">
+                        <a href="https://rm-studio.fr" target="_blank" class="button button-visit">Visiter le site</a>
+                    </div>
+                </div>
+                <div class="section__container second-projects">
+                    <h2 class="section__title second-project" cursor-class="arrow">PEGASE PROD</h2>
+                    <div class="section__container__img" cursor-class="arrow">
+                        <img src="img/pegase-1280.png" alt="">
+                        <a href="https://pegaseprod.com" target="_blank" class="button button-visit">Visiter le site</a>
+                    </div>
+                </div>
                 <div class="section__container">
-                    <h2 class="section__title">RM STUDIO</h2>
-                </div>
-                <div class="section__container 2p">
-                    <h2 class="section__title">Projet 2</h2>
-                </div>
-                <div class="section__container 3p">
-                    <h2 class="section__title">Projet 3</h2>
+                    <h2 class="section__title third-project">Projet 3</h2>
                 </div>
             </div>
         </section>
 
-        <section class="section section__contact">
+        <section class="section section__contact" id="contact">
+            <h1 class="section__title">Contact</h1>
             <div class="section__container">
-                <h1 class="section__title">Contact</h1>
+                <div class="container_form">
+                    <h2 class="subtitle_form">
+                        Restons en contact !
+                    </h2>
+                    <form class="contact_form" action="https://formsubmit.co/guillaumaufrere@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="Nouveau mail!">
+                        <input type="email" name="email" class="field email_input" placeholder="Adresse mail" required>
+                        <input type="hidden" name="_next" value="https://guillaumeaufrere.com/pages/thankyou.html">
+                        <input type="text" name="message" class="field msg_input"
+                            placeholder="Ecrivez votre message ici" required>
+                        <div class="rounded_button">
+                            <button class="button_form" type="submit" cursor-class="arrow">Envoyer</button>
+                        </div>
+                        <!-- <button class="button_form" type="submit" cursor-class="arrow">Envoyer</button> -->
+                    </form>
+                </div>
             </div>
         </section>
     </div>
@@ -144,6 +179,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollToPlugin.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-confetti@0.10.2/dist/js-confetti.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/scrollTrigger.js"></script>
 

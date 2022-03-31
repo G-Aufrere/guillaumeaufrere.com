@@ -46,3 +46,109 @@ $easing: cubic-bezier(0.76, 0, 0.24, 1);
         transition-delay: $delay * $i;
     }
 }
+
+// animation button circle
+
+.btn-circle {
+    display: inline-block;
+    position: absolute;
+    z-index: 1;
+    bottom: 3vmin;
+    right: 7vmin;
+}
+
+.btn-circle__img {
+    -webkit-animation: btn-circle 5s linear infinite;
+    animation: btn-circle 5s linear infinite
+}
+
+@media (max-width:767.98px) {
+    .btn-circle__img img {
+        width: 100px
+    }
+}
+
+.btn-circle__icon {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)
+}
+
+.m-state-intro-about .btn-circle__icon img {
+    -webkit-animation: btn-scroll 2s ease infinite;
+    animation: btn-scroll 2s ease infinite
+}
+
+.icon {
+    height: 32px;
+    width: 32px
+}
+
+.icon-circle {
+    background-color: #f2c081;
+    border-radius: 100%
+}
+
+.icon-circle--bl {
+    background-color: #1b1c1d
+}
+
+@-webkit-keyframes btn-scroll {
+    0% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+
+    75% {
+        -webkit-transform: translate3d(0, 8px, 0);
+        transform: translate3d(0, 8px, 0)
+    }
+
+    to {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+}
+
+@keyframes btn-scroll {
+    0% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+
+    75% {
+        -webkit-transform: translate3d(0, 8px, 0);
+        transform: translate3d(0, 8px, 0)
+    }
+
+    to {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+}
+
+@-webkit-keyframes btn-circle {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    to {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn)
+    }
+}
+
+@keyframes btn-circle {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    to {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn)
+    }
+}

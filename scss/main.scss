@@ -62,7 +62,7 @@ body {
     box-sizing: border-box;
 
     &__container {
-        background-color: rgb(204, 144, 15);
+        //background-color: rgb(204, 144, 15);
         //border-radius: 30px;
         width: 100%;
         height: 100%;
@@ -107,7 +107,7 @@ body {
 //HOMEPAGE
 
 .section__home {
-    //background: url('/img/blade-reverse.png');
+    background: url('/img/Landscape3.png');
     background-position: center;
     background-size: cover;
     position: relative;
@@ -155,6 +155,7 @@ body {
     background-color: rgb(204, 144, 15);
     background-size: cover;
     display: flex;
+    //flex-direction: column;
     position: relative;
 
     .section__title {
@@ -169,17 +170,17 @@ body {
     .section__container {
         display: flex;
         justify-content: space-around;
-        align-items: center;
+        //align-items: center;
         margin: auto;
         padding: 4rem;
-        width: 75%;
+        width: 80%;
 
         &__img {
-            width: 33.33%;
+            //width: 33.33%;
+            margin: auto;
         }
 
         &__text {
-            width: 40%;
             font-family: 'Excon-Regular';
             color: rgb(255, 255, 255);
             line-height: 1.5;
@@ -194,6 +195,17 @@ body {
                     cursor: url('../img/blason-berry.png'), auto;
                 }
             }
+
+            &.middle {
+                align-self: center;
+                width: 33.33%;
+                margin-bottom: 8%;
+            }
+
+            &.right {
+                align-self: flex-end;
+                width: 33.33%;
+            }
         }
     }
 }
@@ -201,6 +213,8 @@ body {
 //WORKS
 
 .section__works {
+    background-color: rgb(204, 144, 15);
+
     h1.section__title {
         position: absolute;
         font-size: 10vmin;
@@ -211,7 +225,144 @@ body {
         z-index: 1;
     }
 
+    .section__containers {
+        .section__container {
 
+            h2.first-project {
+                position: absolute;
+                z-index: 1;
+                top: 15%;
+                right: 12%;
+                font-size: 8vmin;
+                cursor: pointer;
+            }
+
+            &__img {
+                position: relative;
+                top: 5%;
+                //right: 5%;
+                bottom: 5%;
+                opacity: 0.6;
+                cursor: pointer;
+
+                .button-visit {
+                    background-color: rgb(255, 255, 255);
+                    opacity: 1;
+                    color: rgb(0, 0, 0);
+                    text-decoration: none;
+                    font-size: 1rem;
+                    position: absolute;
+                    bottom: 1%;
+                    left: 0%;
+                    padding: 1rem;
+                    border-radius: 50px;
+                    font-family: 'Excon-Variable';
+
+                    &:hover {
+                        background-color: #e7e4ba;
+                        transition: 500ms ease-in-out;
+                    }
+                }
+            }
+        }
+
+        .second-projects {
+            position: relative;
+
+            h2 {
+                position: absolute;
+                z-index: 1;
+                top: 15%;
+                right: 12%;
+                font-size: 8vmin;
+                cursor: pointer;
+            }
+        }
+    }
+
+}
+
+.section__contact {
+    background-color: rgb(204, 144, 15);
+    position: relative;
+
+    h1 {
+        position: absolute;
+        font-size: 10vmin;
+        color: rgb(255, 255, 255);
+        font-family: 'Avalors';
+        top: 2rem;
+        left: 8rem;
+        //z-index: 1;
+    }
+
+    .section__container {
+        width: 50%;
+        position: relative;
+        left: 50%;
+    }
+
+    .container_form {
+        //width: 100%;
+        //position: absolute;
+        //left: 95%;
+        display: block;
+
+        .subtitle_form {
+            color: white;
+            margin-bottom: 5rem;
+            font-size: 5vmin;
+            text-transform: uppercase;
+            text-align: center;
+            font-family: $font-body;
+        }
+
+        .contact_form {
+            display: grid;
+            gap: 3rem;
+
+            .field {
+                font-size: 5vmin;
+                font-family: $font-body;
+                background-color: transparent;
+                color: #ffffff;
+                outline: none;
+                border: none;
+                border-bottom: 2px solid rgb(255, 255, 255);
+
+                &::placeholder {
+                    color: rgb(255, 255, 255);
+                }
+            }
+
+            .rounded_button {
+                width: 6rem;
+                height: 6rem;
+                margin: auto;
+            }
+
+            .button_form {
+                display: block;
+                width: 100%;
+                height: 100%;
+                //padding: 1rem;
+                //margin: 2rem auto;
+                font-size: 1.25rem;
+                border: 2px solid rgb(255, 255, 255);
+                color: rgb(255, 255, 255);
+                background-color: transparent;
+                border-radius: 50px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #ffffff;
+                    color: #000000;
+                    transition: all 500ms ease-in-out;
+                    transform-origin: center;
+                }
+            }
+        }
+    }
 }
 
 //CUSTOM CURSOR
@@ -272,3 +423,5 @@ body {
         border-color: transparent;
     }
 }
+
+//curtains
