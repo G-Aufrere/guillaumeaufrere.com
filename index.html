@@ -59,7 +59,7 @@
     </div>
 
     <div id="mainContent">
-        <div id="scroll-container">
+        <div id="smooth-content">
             <section id="home" class="section section__home">
                 <div class="section__container">
                     <!--<h1 class="section__title">Section 1</h1>-->
@@ -87,7 +87,7 @@
             </section>
 
             <section class="section section__about" id="about">
-                <h1 class="section__title">A propos</h1>
+                <h2 class="section__title">A propos</h2>
                 <div class="section__container">
                     <div class="section__container__img">
                         <img src="img/rounded.png" class="profil-picture skewElem" alt="photo Profil">
@@ -124,46 +124,38 @@
         </div>
 
         <section class="section horizontal section__works" id="works">
-            <h1 class="section__title">Works</h1>
+            <h2 class="section__title">Works</h2>
             <div class="section__containers">
                 <div class="section__container first-projects">
-                    <h2 class="section__title first-project" cursor-class="arrow">RM STUDIO</h2>
+                    <h3 class="section__title first-project" cursor-class="arrow">RM STUDIO</h3>
                     <div class="section__container__img" cursor-class="arrow">
                         <img src="img/rmstudio-thumbnail.png" alt="">
                         <a href="https://rm-studio.fr" target="_blank" class="button button-visit">Visiter le site</a>
                     </div>
                 </div>
                 <div class="section__container second-projects">
-                    <h2 class="section__title second-project" cursor-class="arrow">PEGASE PROD</h2>
+                    <h3 class="section__title second-project" cursor-class="arrow">PEGASE PROD</h3>
                     <div class="section__container__img" cursor-class="arrow">
                         <img src="img/pegase-1280.png" alt="">
                         <a href="https://pegaseprod.com" target="_blank" class="button button-visit">Visiter le site</a>
                     </div>
                 </div>
                 <div class="section__container">
-                    <h2 class="section__title third-project">Projet 3</h2>
+                    <h3 class="section__title third-project">Projet 3</h3>
                 </div>
             </div>
         </section>
 
         <section class="section section__contact" id="contact">
-            <h1 class="section__title">Contact</h1>
-            <div class="section__container">
-                <div class="container_form">
-                    <h2 class="subtitle_form">
-                        Restons en contact !
-                    </h2>
-                    <form class="contact_form" action="https://formsubmit.co/guillaumaufrere@gmail.com" method="POST">
-                        <input type="hidden" name="_subject" value="Nouveau mail!">
-                        <input type="email" name="email" class="field email_input" placeholder="Adresse mail" required>
-                        <input type="hidden" name="_next" value="https://guillaumeaufrere.com/pages/thankyou.html">
-                        <input type="text" name="message" class="field msg_input"
-                            placeholder="Ecrivez votre message ici" required>
-                        <div class="rounded_button">
-                            <button class="button_form" type="submit" cursor-class="arrow">Envoyer</button>
-                        </div>
-                        <!-- <button class="button_form" type="submit" cursor-class="arrow">Envoyer</button> -->
-                    </form>
+            <h2 class="section__title">Contactez-moi</h2>
+            <div class="left-content">
+                <p class="left-content__paragraph question">
+                    Une idée en tête ?
+                </p>
+                <div class="btn btn_mail">
+                    <a href="mailto:guillaumaufrere@gmail.com">
+                        Envoyez-moi un mail !
+                    </a>
                 </div>
             </div>
         </section>
@@ -180,8 +172,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollToPlugin.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/js-confetti@0.10.2/dist/js-confetti.min.js"></script>
-<script src="js/main.js"></script>
 <script src="js/scrollTrigger.js"></script>
+<script src="js/main.js"></script>
 
 
 </html>
