@@ -286,11 +286,45 @@ body {
 
 
     h2.section__title {
-        text-align: center;
-        font-size: 7vw;
+        font-size: 6vw;
         display: inline-block;
         color: rgb(255, 255, 255);
         font-family: 'Avalors';
+    }
+
+    .top-content {
+        width: 100%;
+        margin-top: 2rem;
+        padding: 0 11rem;
+
+        .left-content {
+            display: flex;
+            flex-direction: column;
+            margin-top: 3rem;
+
+            &__paragraph {
+                font-size: 4vw;
+                color: rgb(255, 255, 255);
+                font-family: $font-body;
+            }
+
+            .btn_mail {
+                border: 1px solid rgb(255, 255, 255);
+                width: auto;
+                margin-top: 2em;
+                width: fit-content;
+                border-radius: 40px;
+                padding: 1rem;
+
+                .mail_link {
+                    text-decoration: none;
+                    color: rgb(255, 255, 255);
+                    font-size: 2vw;
+                    font-family: 'Excon-Light';
+                    font-style: italic;
+                }
+            }
+        }
     }
 }
 
@@ -353,4 +387,60 @@ body {
     }
 }
 
-//curtains
+// RM STUDIO PROJECT PAGE
+
+.project-container {
+    background-color: rgb(204, 144, 15);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__title {
+        font-size: 6vw;
+        display: inline-block;
+        color: rgb(255, 255, 255);
+        font-family: 'Avalors';
+        padding: 5rem 0 5rem;
+        margin: auto;
+    }
+
+    &__top-content {
+        padding: 2rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 5rem;
+
+        &__img {
+            max-width: 100%;
+            width: 40vw;
+
+            .img-rmstudio {
+                width: 100%;
+            }
+        }
+
+        &__text {
+            font-family: 'Excon-Regular';
+            color: rgb(255, 255, 255);
+            line-height: 1.5;
+            font-size: 2vmin;
+            width: 30%;
+        }
+    }
+
+    &__middle-content {
+        display: flex;
+        justify-content: center;
+
+        &__video {
+            position: relative;
+            text-align: center;
+
+            video.video-rmstudio {
+                width: 75%;
+                margin-bottom: 5rem;
+            }
+        }
+    }
+}
