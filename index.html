@@ -11,7 +11,13 @@
     <meta name="description" content="Guillaume Aufrere, Développeur web front-end" />
 </head>
 
-<body id="mainPage">
+<body id="mainPage" data-barba="wrapper">
+
+    <!-- <div class="load-container">
+        <div class="loading-screen">
+            <img src="/img/logo-ga.png" alt="logo Guillaume Aufrere">
+        </div>
+    </div> -->
 
     <header>
         <div id="navLogo"><a href=""></a></div>
@@ -39,7 +45,7 @@
         <nav class="nav">
             <ul class="nav__list">
                 <li class="nav__item home">
-                    <a class="nav__link" cursor-class="arrow" href="#home">Accueil</a>
+                    <a class="nav__link" cursor-class="arrow" href="index.html#home">Accueil</a>
                 </li>
                 <li class="nav__item about">
                     <a class="nav__link" cursor-class="arrow" href="#about">A propos</a>
@@ -58,7 +64,7 @@
         <div class="cursor__circle"></div>
     </div>
 
-    <div id="mainContent">
+    <main id="mainContent" data-barba="container" data-barba-namespace="home-section">
         <div id="smooth-content">
             <section id="home" class="section section__home">
                 <div class="section__container">
@@ -89,10 +95,10 @@
             <section class="section section__about" id="about">
                 <h2 class="section__title">A propos</h2>
                 <div class="section__container">
-                    <div class="section__container__img">
-                        <img src="img/rounded.png" class="profil-picture skewElem" alt="photo Profil">
+                    <div class="section__container__img column">
+                        <img src="img/profil-picture-428x600.png" class="profil-picture skewElem" alt="photo Profil">
                     </div>
-                    <div class="section__container__text middle">
+                    <div class="section__container__text column">
                         <p class="text_about first_para">
                             Je suis un développeur frontend originaire de <strong
                                 class="bourges__hover">Bourges</strong>, disponible pour des
@@ -102,8 +108,6 @@
                         <p class="text_about second_para">
                             Mon but est de créer des sites web interactifs et accessibles sur tous les supports.
                         </p>
-                    </div>
-                    <div class="section__container__text right">
                         <p class="text_about third_para">
                             Je m'intéresse depuis peu à tout ce qui touche aux animations, que ce soit en 2D ou en
                             3D.
@@ -129,7 +133,7 @@
                 <div class="section__container first-projects">
                     <h3 class="section__title first-project" cursor-class="arrow">RM STUDIO</h3>
                     <div class="section__container__img" cursor-class="arrow">
-                        <a href="/projets/rmstudio.html"><img src="img/rmstudio-thumbnail.png"
+                        <a href="/projets/rmstudio.html" class="link-transition"><img src="img/rmstudio-thumbnail.png"
                                 alt="accueil rm studio"></a>
                         <a href="https://rm-studio.fr" target="_blank" class="button button-visit">Visiter le site</a>
                     </div>
@@ -137,7 +141,7 @@
                 <div class="section__container second-projects">
                     <h3 class="section__title second-project" cursor-class="arrow">PEGASE PROD</h3>
                     <div class="section__container__img" cursor-class="arrow">
-                        <img src="img/pegase-1280.png" alt="accueil pegase prod">
+                        <a href="/projets/pegaseprod.html"><img src="img/pegase-1280.png" alt="accueil pegase prod"></a>
                         <a href="https://pegaseprod.com" target="_blank" class="button button-visit">Visiter le site</a>
                     </div>
                 </div>
@@ -164,7 +168,7 @@
             </div>
 
         </section>
-    </div>
+    </main>
 
 
 </body>

@@ -143,7 +143,6 @@ body {
     //background: url('/img/blade.png');
     background-color: rgb(204, 144, 15);
     background-size: cover;
-    display: flex;
     //flex-direction: column;
     position: relative;
 
@@ -157,23 +156,25 @@ body {
     }
 
     .section__container {
-        display: flex;
-        justify-content: space-around;
-        //align-items: center;
-        margin: auto;
-        padding: 4rem;
-        width: 80%;
+        display: grid;
+        margin: 5% auto 0;
+        grid-template-columns: 50% 30%;
+        grid-template-rows: auto;
+        align-items: center;
+        justify-content: space-evenly;
+
 
         &__img {
-            //width: 33.33%;
-            margin: auto;
+            place-self: center;
+            max-width: 100%;
+            height: auto;
         }
 
         &__text {
             font-family: 'Excon-Regular';
             color: rgb(255, 255, 255);
-            line-height: 1.5;
-            font-size: 2vmin;
+            line-height: 1.5rem;
+            font-size: 1rem;
 
             .text_about {
                 margin-bottom: 2rem;
@@ -183,17 +184,6 @@ body {
                 .bourges__hover {
                     cursor: url('../img/blason-berry.png'), auto;
                 }
-            }
-
-            &.middle {
-                align-self: center;
-                width: 33.33%;
-                margin-bottom: 8%;
-            }
-
-            &.right {
-                align-self: flex-end;
-                width: 33.33%;
             }
         }
     }
@@ -406,26 +396,26 @@ body {
 
     &__top-content {
         padding: 2rem;
+        position: relative;
         display: flex;
         justify-content: space-around;
         align-items: center;
         margin-bottom: 5rem;
 
-        &__img {
-            max-width: 100%;
-            width: 40vw;
-
-            .img-rmstudio {
-                width: 100%;
-            }
-        }
-
         &__text {
+            padding: 2rem;
             font-family: 'Excon-Regular';
             color: rgb(255, 255, 255);
             line-height: 1.5;
-            font-size: 2vmin;
-            width: 30%;
+            font-size: 1.25rem;
+            text-align: center;
+
+            .project-goal,
+            .project-client,
+            .project-skills {
+                font-family: 'Avalors';
+                margin-bottom: 1rem;
+            }
         }
     }
 
@@ -443,4 +433,117 @@ body {
             }
         }
     }
+
+    &__bottom-content {
+
+        &__buttons {
+            display: flex;
+            justify-content: space-evenly;
+            width: 100vw;
+            padding: 3rem;
+
+            .button {
+                pointer-events: auto;
+                cursor: pointer;
+                background: #e7e7e7;
+                border: none;
+                padding: 1.5rem 3rem;
+                margin: 0;
+                font-family: inherit;
+                font-size: inherit;
+                position: relative;
+                display: inline-block;
+            }
+
+            .button::before,
+            .button::after {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            .button--janus {
+                font-family: 'Excon-Regular', serif;
+                font-weight: 900;
+                width: 175px;
+                height: 120px;
+                color: #fff;
+                background: none;
+            }
+
+            .button--janus::before {
+                content: '';
+                background: #e6e6e6;
+                -webkit-clip-path: path("M154.5,88.5 C131,113.5 62.5,110 30,89.5 C-2.5,69 -3.5,42 4.5,25.5 C12.5,9 33.5,-6 85,3.5 C136.5,13 178,63.5 154.5,88.5 Z");
+                clip-path: path("M154.5,88.5 C131,113.5 62.5,110 30,89.5 C-2.5,69 -3.5,42 4.5,25.5 C12.5,9 33.5,-6 85,3.5 C136.5,13 178,63.5 154.5,88.5 Z");
+                transition: clip-path 0.5s cubic-bezier(0.585, 2.5, 0.645, 0.55), -webkit-clip-path 0.5s cubic-bezier(0.585, 2.5, 0.645, 0.55), background 0.5s ease;
+            }
+
+            .button--janus:hover::before {
+                background: #000;
+                -webkit-clip-path: path("M143,77 C117,96 74,100.5 45.5,91.5 C17,82.5 -10.5,57 5.5,31.5 C21.5,6 79,-5.5 130.5,4 C182,13.5 169,58 143,77 Z");
+                clip-path: path("M143,77 C117,96 74,100.5 45.5,91.5 C17,82.5 -10.5,57 5.5,31.5 C21.5,6 79,-5.5 130.5,4 C182,13.5 169,58 143,77 Z");
+            }
+
+            .button--janus::after {
+                content: '';
+                height: 86%;
+                width: 97%;
+                top: 5%;
+                border-radius: 58% 42% 55% 45% / 56% 45% 55% 44%;
+                border: 1px solid #000;
+                transform: rotate(-20deg);
+                z-index: 0;
+                transition: transform 0.5s cubic-bezier(0.585, 2.5, 0.645, 0.55);
+            }
+
+            .button--janus:hover::after {
+                transform: translate3d(0, -5px, 0);
+            }
+
+            .button--janus span {
+                display: block;
+                transition: transform 0.3s ease;
+                mix-blend-mode: difference;
+            }
+
+            .button--janus:hover span {
+                transform: translate3d(0, -10px, 0);
+            }
+        }
+    }
+
+    .btn-circle {
+        position: fixed;
+        z-index: 0;
+    }
 }
+
+// loading screen transition 
+
+// .loading-screen {
+//     position: relative;
+//     padding-left: 0;
+//     padding-right: 0;
+//     padding-top: 0;
+//     background-color: #921010;
+//     width: 0%;
+//     height: 100%;
+
+//     img {
+//         margin: auto;
+//     }
+// }
+
+// .load-container {
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100vh;
+//     overflow: hidden;
+//     z-index: 10;
+//     pointer-events: none;
+// }

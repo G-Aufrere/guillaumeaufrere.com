@@ -9,7 +9,13 @@
     <title>Guillaume Aufrere Développeur Frontend</title>
 </head>
 
-<body>
+<body data-barba="wrapper">
+
+    <!-- <div class="load-container">
+        <div class="loading-screen">
+            <img src="/img/logo-ga.png" alt="logo Guillaume Aufrere">
+        </div>
+    </div> -->
 
     <header>
         <div id="navLogo"><a href=""></a></div>
@@ -22,7 +28,7 @@
 
     <div class="vertical-content">
         <div class="vertical-content__item__logo">
-            <a href="#home"><img src="/img/logo-ga.png" class="logo_ga" alt="logo Guillaume Aufrere"
+            <a href="/index.html"><img src="/img/logo-ga.png" class="logo_ga" alt="logo Guillaume Aufrere"
                     cursor-class="arrow"></a>
         </div>
         <div class="vertical-content__item__socials">
@@ -56,15 +62,23 @@
         <div class="cursor__circle"></div>
     </div>
 
-    <div class="project-container">
+    <main class="project-container" data-barba="container" data-barba-namespace="project-section">
         <h1 class="project-container__title">RM STUDIO</h1>
         <div class="project-container__top-content">
-            <div class="project-container__top-content__img">
-                <img class="img-rmstudio" src="/img/Capture d’écran (32).png" alt="">
+            <div class="project-container__top-content__text what-text">
+                <img src="/img/icons8-objectif-80.png" alt="logo target">
+                <p class="project-goal">Le but du projet</p>
+                <p>Création d'un site web <br> avec gestion de contenu</p>
             </div>
-            <div class="project-container__top-content__text">
-                <p>Création d'un site web avec gestion de contenu pour RM Studio, Chef de projet et Webdesigner</p>
-                <p>Technos utilisées : HTML/CSS JS PHP/MySQL GSAP BULMA</p>
+            <div class="project-container__top-content__text skills-text">
+                <img src="/img/icons8-programming-language-66.png" alt="logo technology">
+                <p class="project-skills">Technos utilisées </p>
+                <p>HTML/CSS JS <br> PHP/MySQL <br> GSAP BULMA</p>
+            </div>
+            <div class="project-container__top-content__text who-text">
+                <img src="/img/icons8-contrat-de-travail-80.png" alt="logo client">
+                <p class="project-client">Pour qui ?</p>
+                <p>RM Studio <br> Chef de projet et Webdesigner</p>
             </div>
         </div>
         <div class="project-container__middle-content">
@@ -74,7 +88,29 @@
                 <video autoplay loop muted class="video-rmstudio" src="/img/openProjects.mp4"></video>
             </div>
         </div>
-    </div>
+        <div class="project-container__bottom-content">
+            <div class="project-container__bottom-content__buttons">
+                <a href="/index.html">
+                    <button class="button button--janus">
+                        <span>Accueil</span>
+                    </button>
+                </a>
+                <a href="/projets/pegaseprod.html">
+                    <button class="button button--janus">
+                        <span>Projet suivant</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+        <div class="btn-circle">
+            <div class="btn-circle__icon">
+                <img src="/img/arr.png" alt="button scroll">
+            </div>
+            <div class="btn-circle__img">
+                <img src="/img/scroll.png" alt="">
+            </div>
+        </div>
+    </main>
 </body>
 
 
