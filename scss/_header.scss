@@ -30,6 +30,7 @@ header {
     width: 32px;
     cursor: pointer;
     z-index: 2;
+    mix-blend-mode: difference;
 }
 
 .hamburger line {
@@ -44,7 +45,7 @@ header {
     width: 100vw;
     //width: 0;
     height: 100vh;
-    background-color: rgb(148, 87, 8);
+    background-color: #dfb018;
     visibility: hidden;
     z-index: 1;
 }
@@ -68,12 +69,12 @@ header {
 
     &__link {
         color: transparent;
-        -webkit-text-stroke: 1px white;
+        -webkit-text-stroke: 1px rgb(0, 0, 0);
         font-family: 'Avalors';
         text-decoration: none;
     }
 
     :hover {
-        color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
     }
 }

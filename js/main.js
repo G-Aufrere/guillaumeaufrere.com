@@ -1,5 +1,46 @@
 // SLIDING MENU FROM RIGHT TO THE LEFT WITH GSAP
 
+// Section Pinning
+gsap.utils.toArray(".section").forEach((section) => {
+
+    if (section.classList.contains('horizontal')) {
+
+        const containersWrap = section.querySelector('.section__containers')
+        const oneContainer = section.querySelector('.section__container')
+
+        gsap.to(containersWrap, {
+            //x: () => { return -( (cardsWrap.scrollWidth - window.innerWidth + window.innerWidth*0.05) + (window.innerWidth/2 - oneCard.offsetWidth/2) ) },
+            x: () => {
+                return -(containersWrap.scrollWidth - oneContainer.offsetWidth)
+            },
+            ease: "none",
+            scrollTrigger: {
+                trigger: section,
+                start: () => "center center",
+                end: () => "+=" + (containersWrap.scrollWidth - oneContainer.offsetWidth),
+                scrub: 1,
+                pin: true,
+                invalidateOnRefresh: true,
+                anticipatePin: 0,
+            },
+        });
+
+    } else {
+
+        ScrollTrigger.create({
+            trigger: section,
+            start: () => "top top",
+            end: "+=100px",
+            scrub: 1,
+            pin: true,
+            anticipatePin: 1,
+            //pinSpacing: true
+        });
+
+    }
+
+});
+
 var $hamburger = $('.hamburger');
 
 gsap.set('.line01', {
@@ -207,70 +248,3 @@ elements.forEach(element => {
         element.classList.remove('play');
     });
 });
-
-//transition page barba + gsap
-
-// function delay(n) {
-//     n = n || 2000;
-//     return new Promise((done) => {
-//         setTimeout(() => {
-//             done();
-//         }, n);
-//     });
-// }
-
-// function pageTransition() {
-//     var tl = gsap.timeline();
-//     tl.to(".loading-screen", {
-//         duration: 0.8,
-//         width: "100%",
-//         left: "0%",
-//         ease: "Expo.easeInOut",
-//     });
-
-//     tl.to(".loading-screen", {
-//         duration: 0.6,
-//         width: "100%",
-//         left: "100%",
-//         ease: "Expo.easeInOut",
-//         delay: 0.3,
-//     });
-//     tl.set(".loading-screen", {
-//         left: "-100%"
-//     });
-// }
-
-// function contentAnimation() {
-//     var tl = gsap.timeline();
-//     tl.from(".link-transition", {
-//         duration: 1,
-//         y: 30,
-//         opacity: 0,
-//         stagger: 0.4,
-//         delay: 0.2
-//     });
-// }
-
-// $(function () {
-//     barba.init({
-//         sync: true,
-
-//         transitions: [{
-//             async leave(data) {
-//                 const done = this.async();
-
-//                 pageTransition();
-//                 await delay(1000);
-//                 done();
-//             },
-
-//             async enter(data) {
-//                 contentAnimation();
-//             },
-
-//             async once(data) {
-//                 contentAnimation();
-//             },
-//         }, ],
-//     });
-// });
