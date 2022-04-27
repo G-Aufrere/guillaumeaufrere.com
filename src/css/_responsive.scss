@@ -1,0 +1,289 @@
+@import 'include-media';
+
+@include media ("<=desktop") {
+
+    .vertical-content {
+        display: none !important;
+    }
+
+    .section__home {
+        h1 {
+            font-size: 9vmin;
+        }
+    }
+
+    .section__about {
+        height: auto !important;
+        display: flex;
+        flex-direction: column;
+
+        .section__title {
+            position: initial !important;
+        }
+
+        .section__container {
+            padding: 1rem;
+            display: flex !important;
+            flex-direction: column;
+
+            .section__container__img {
+                margin-bottom: 1rem;
+
+                img {
+                    height: 45vh !important;
+                }
+            }
+
+            .section__container__text {
+                width: 90%;
+            }
+        }
+    }
+
+    .section__works {
+        display: flex;
+        flex-direction: column;
+        height: auto !important;
+
+        h2.section__title {
+            position: initial !important;
+            padding: 1rem;
+            z-index: 0 !important;
+        }
+
+        .section__containers {
+            display: flex;
+            flex-direction: column;
+
+            .section__container {
+                display: flex;
+                flex-direction: column;
+                padding: 1rem;
+
+                &__img {
+                    display: flex;
+                    flex-direction: column;
+
+                    .button--surtur {
+                        display: none;
+                    }
+                }
+
+                h3 {
+                    position: initial !important;
+                    align-self: flex-start;
+                    font-size: 4vmin !important;
+                    z-index: 0 !important;
+                    color: #000000 !important;
+                }
+            }
+        }
+    }
+
+    .section__contact {
+        height: auto !important;
+
+        .top-content {
+            text-align: center;
+            padding: 0 !important;
+        }
+
+        .btn_mail {
+            margin: 2rem auto;
+            padding: 0.75rem !important;
+
+            .mail_link {
+                font-size: 3vw !important;
+            }
+        }
+
+        .socials {
+            padding: 1rem;
+            display: flex;
+            justify-content: space-around;
+
+            .linkedin_logo {
+                display: block !important;
+            }
+
+            .mail,
+            .thankyou {
+                display: none;
+            }
+
+            img {
+                width: 65px !important;
+                position: initial !important;
+            }
+        }
+    }
+}
+
+@include media ("<=540px") {
+    .project-container {
+        &__top-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        &__bottom-content__buttons {
+            .button--janus::before {
+                background: transparent;
+            }
+        }
+    }
+}
+
+@include media (">desktop") {
+    $delay: 0.015s;
+    $duration: 0.6s;
+    $easing: cubic-bezier(0.76, 0, 0.24, 1);
+
+    .rolling-text {
+        display: inline-block;
+        //font-family: 'Playfair Display', serif;
+        $font-size: 12vmin;
+        font-size: $font-size;
+        line-height: $font-size * 1.5;
+        //letter-spacing: $font-size / 2;
+        height: $font-size * 1.5;
+        text-decoration: none;
+        overflow: hidden;
+        //color: #1a1a1a;
+
+        &:hover,
+        &.play {
+            .letter {
+                transform: translateY(-100%);
+            }
+        }
+
+        .letter {
+            display: inline-block;
+            transition: transform $duration $easing;
+        }
+
+        &__fill {
+            .block:last-child {
+                color: #ffffff;
+            }
+        }
+
+        &__empty {
+            .block:last-child {
+                color: transparent;
+                -webkit-text-stroke: 1px white;
+            }
+        }
+    }
+
+
+    @for $i from 0 through 20 {
+        .letter:nth-child(#{$i + 1}) {
+            transition-delay: $delay * $i;
+        }
+    }
+}
+
+@include media (">=1280px", "<=1600px") {
+    .nav {
+        left: 57%;
+
+        &__item {
+            font-size: 9vmin;
+        }
+    }
+
+    .section__about {
+        .section__container {
+            grid-template-columns: 50% 50%;
+
+            &__text {
+                margin-top: 5rem;
+
+                .first_para {
+                    font-size: 1rem !important;
+                }
+            }
+
+            .skills {
+                img {
+                    width: 64px !important;
+                }
+            }
+        }
+    }
+
+    .section__works {
+        .section__container {
+            &__img {
+                width: 60%;
+
+                h3 {
+                    font-size: 7vmin !important;
+                    //top: -15% !important;
+                }
+            }
+        }
+    }
+
+    .section__contact {
+        .socials {
+            .mail {
+                right: 12rem !important;
+            }
+        }
+    }
+}
+
+@include media (">=2000px") {
+
+
+    .section__about {
+        .section__title {
+            left: -1250px !important;
+        }
+
+        .section__container {
+            &__text {
+                .text_about {
+                    font-size: 2rem !important;
+                    line-height: 1.5;
+                    margin-bottom: 5rem !important;
+                }
+
+                .first_para {
+                    line-height: 3rem !important;
+                }
+            }
+
+            .skills {
+                img {
+                    width: 96px !important;
+                }
+
+                &__title {
+                    font-size: 1vw !important;
+                }
+            }
+        }
+    }
+
+    .section__works {
+        h2.section__title {
+            left: -1200px !important;
+        }
+
+        .section__containers {
+            .section__container__img {
+                width: auto !important;
+
+                h3 {
+                    font-size: 6vmin !important;
+                }
+            }
+        }
+
+    }
+}

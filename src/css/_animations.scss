@@ -1,0 +1,349 @@
+// animation button circle
+
+.btn-circle {
+    display: inline-block;
+    position: absolute;
+    z-index: 0;
+    bottom: 3vmin;
+    right: 4vmin;
+}
+
+.btn-circle__img {
+    -webkit-animation: btn-circle 5s linear infinite;
+    animation: btn-circle 5s linear infinite;
+
+
+    img {
+        width: 100px;
+    }
+}
+
+@media (max-width:767.98px) {
+    .btn-circle__img img {
+        width: 100px
+    }
+}
+
+.btn-circle__icon {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    img {
+        width: 50px;
+    }
+}
+
+.m-state-intro-about .btn-circle__icon img {
+    -webkit-animation: btn-scroll 2s ease infinite;
+    animation: btn-scroll 2s ease infinite;
+
+}
+
+.icon {
+    height: 32px;
+    width: 32px
+}
+
+.icon-circle {
+    background-color: #f2c081;
+    border-radius: 100%
+}
+
+.icon-circle--bl {
+    background-color: #1b1c1d
+}
+
+@-webkit-keyframes btn-scroll {
+    0% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+
+    75% {
+        -webkit-transform: translate3d(0, 8px, 0);
+        transform: translate3d(0, 8px, 0)
+    }
+
+    to {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+}
+
+@keyframes btn-scroll {
+    0% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+
+    75% {
+        -webkit-transform: translate3d(0, 8px, 0);
+        transform: translate3d(0, 8px, 0)
+    }
+
+    to {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0)
+    }
+}
+
+@-webkit-keyframes btn-circle {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    to {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn)
+    }
+}
+
+@keyframes btn-circle {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+
+    to {
+        -webkit-transform: rotate(1turn);
+        transform: rotate(1turn)
+    }
+}
+
+//btn eye
+
+.button--surtur {
+    padding: 0;
+    background: none;
+    -webkit-clip-path: circle(40% at 50% 50%);
+    clip-path: circle(40% at 50% 50%);
+    position: absolute;
+    //bottom: -3rem;
+    top: 1rem;
+    right: -15rem;
+    cursor: pointer;
+}
+
+.button--surtur:focus-visible {
+    background: #443ffc;
+}
+
+.textcircle {
+    position: relative;
+    display: block;
+    width: 200px;
+}
+
+.textcircle text {
+    font-size: 32px;
+    text-transform: uppercase;
+    fill: #000;
+}
+
+.textcircle textPath {
+    letter-spacing: 17px;
+    /* Firefox needs this */
+}
+
+.button--surtur:hover .textcircle {
+    animation: rotateIt 7s linear infinite;
+}
+
+.eye {
+    position: absolute;
+    z-index: 2;
+    width: 60px;
+    height: 60px;
+    top: calc(50% - 30px);
+    left: calc(50% - 30px);
+}
+
+.eye__outer,
+.eye__inner,
+.eye__lashes-up,
+.eye__lashes-down {
+    stroke: #000;
+    fill: none;
+    stroke-width: 1.5px;
+}
+
+.eye__lashes-down {
+    opacity: 0;
+}
+
+.button--surtur:hover .eye__lashes-up,
+.button--surtur:hover .eye__inner,
+.button--surtur:hover .eye__iris {
+    animation: blinkHide 2s step-end infinite;
+}
+
+.button--surtur:hover .eye__lashes-down {
+    animation: blinkShow 2s step-end infinite;
+}
+
+@keyframes blinkHide {
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+}
+
+@keyframes blinkShow {
+    0% {
+        opacity: 1;
+    }
+
+    10% {
+        opacity: 0;
+    }
+}
+
+@keyframes rotateIt {
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+//CUSTOM CURSOR
+
+#cursor {
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    will-change: transform;
+    mix-blend-mode: difference;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .cursor__circle {
+        width: 48px;
+        height: 48px;
+        margin-top: -50%;
+        margin-left: -50%;
+        border-radius: 50%;
+        border: solid 1px rgba(255, 255, 255, 0.84);
+        mix-blend-mode: difference;
+        transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+            background-color 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+            border-color 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+            width 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+            height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    #cursor.arrow .cursor__circle {
+        width: 96px;
+        height: 96px;
+        background-color: #ffffff;
+        border-color: #ffffff;
+        mix-blend-mode: difference;
+        opacity: 0.4;
+    }
+
+    #cursor.arrow::after {
+        content: '';
+        position: absolute;
+        left: -50%;
+        top: -50%;
+        width: 100%;
+        height: 100%;
+        background-image: url('../images/black-arrow.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    #cursor.subtle .cursor__circle {
+        opacity: 0.16;
+    }
+
+    #cursor.overlay .cursor__circle {
+        width: 48px;
+        height: 48px;
+        background-color: rgba(227, 193, 227, 0.08);
+        border-color: transparent;
+        mix-blend-mode: difference;
+    }
+}
+
+//TRANSITION PAGE
+
+.loader-wrapper {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #dfb018;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    // animation: loader 2s infinite ease;
+}
+
+.preload {
+    overflow: hidden;
+}
+
+.my-scrollbar {
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+}
+
+.preload-black {
+    z-index: 7;
+    background: rgb(5, 5, 5);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+
+}
+
+.preload-yellow {
+    z-index: 6;
+    background: #dfb018;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+}
+
+.hb-fill-top::before {
+    position: absolute;
+    content: "";
+    background: #dfb018;
+    transition-duration: 0.3s;
+    z-index: -1;
+    inset: auto auto 0px 0px;
+    width: 100%;
+    height: 0px;
+    opacity: 1;
+}
+
+.hb-fill-top:hover::before {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+}
+
+.hb-fill-top:hover {
+    color: rgb(0, 0, 0);
+    background: #dfb018;
+    transition: color 0.3s ease 0s, background 0s ease 0.3s;
+}

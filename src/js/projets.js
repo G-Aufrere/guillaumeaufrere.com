@@ -1,0 +1,304 @@
+import gsap from 'gsap';
+
+import $ from "jquery";
+
+import "../fonts/Avalors.woff2"
+import "../fonts/Avalors.woff"
+import "../fonts/Avalors.ttf"
+import "../fonts/Excon-Regular.ttf"
+import "../fonts/Excon-Regular.woff"
+import "../fonts/Excon-Regular.woff2"
+
+
+const blackPage = document.querySelector('.preload-black')
+const yellowPage = document.querySelector('.preload-yellow')
+
+$(window).on("load", function () {
+    $(".loader-wrapper").fadeOut("slow");
+    $("body").removeClass("preload");
+    const tlLoader = gsap.timeline()
+
+    tlLoader.to(yellowPage, {
+        xPercent: -100,
+        duration: 1.4,
+        ease: "power2.inOut",
+    }, ">")
+    tlLoader.to(blackPage, {
+        xPercent: -100,
+        duration: 1.1,
+        ease: "power4.inOut"
+    }, "<")
+
+    tlLoader.fromTo(".vertical-content", {
+        xPercent: -100
+    }, {
+        xPercent: 0,
+        duration: 0.3,
+        ease: "power2.inOut"
+    }, "<")
+});
+
+var hamburger = document.querySelector('.hamburger');
+let navLink = document.querySelectorAll('.nav__link');
+
+gsap.set('.line01', {
+    x: 40
+});
+gsap.set('.line03', {
+    x: -40
+});
+gsap.set('.nav', {
+    xPercent: -50,
+    yPercent: -50
+})
+gsap.set('.nav li', {
+    x: -1500
+});
+
+if (window.matchMedia("(min-width: 1281px)").matches) {
+    var hamburgerMotion = gsap.timeline()
+        .to('.line03', {
+            duration: 0.2,
+            x: '-=40'
+        }, 0)
+        .to('.line01', {
+            duration: 0.2,
+            x: '+=40'
+        }, 0)
+        .from('.menu', {
+            xPercent: -100,
+            duration: 0.3
+        }, 0.5)
+        .to('.menu', {
+            xPercent: 100,
+            duration: 0.3,
+            autoAlpha: 1,
+            //x: -500
+        }, 0.5)
+        .to('.home', {
+            duration: 0.2,
+            x: -400,
+            ease: "sine.out",
+            stagger: 0.2
+        }, ">")
+        .to('.about', {
+            duration: 0.2,
+            x: -150,
+            ease: "sine.out",
+            stagger: 0.2
+        }, ">")
+        .to('.works', {
+            duration: 0.2,
+            x: 100,
+            ease: "sine.out",
+            stagger: 0.2
+        }, ">")
+        .to('.contact', {
+            duration: 0.2,
+            x: 350,
+            ease: "sine.out",
+            stagger: 0.2
+        }, ">")
+        .to('.nav li', {
+            duration: 0.3,
+            marginBottom: '40px'
+        })
+        .reverse()
+    hamburger.addEventListener('click', function (e) {
+        hamburgerMotion.reversed(!hamburgerMotion.reversed());
+    });
+} else if (window.matchMedia("(min-width: 1200px)").matches) {
+    var hamburgerMotion = gsap.timeline()
+        .to('.line03', {
+            duration: 0.2,
+            x: '-=40'
+        }, 0)
+        .to('.line01', {
+            duration: 0.2,
+            x: '+=40'
+        }, 0)
+        .from('.menu', {
+            xPercent: -100,
+            duration: 0.3
+        }, 0.5)
+        .to('.menu', {
+            xPercent: 100,
+            duration: 0.3,
+            autoAlpha: 1,
+            //x: -500
+        }, 0.5)
+        .to('.home', {
+            duration: 0.2,
+            x: -325,
+            ease: "sine.out",
+            stagger: 0.2
+        }, ">")
+        .to('.about', {
+            duration: 0.2,
+            x: -175,
+            ease: "sine.out",
+            stagger: 0.2
+        }, ">")
+        .to('.works', {
+            duration: 0.2,
+            x: 15,
+            ease: "sine.out",
+            stagger: 0.2
+        }, ">")
+        .to('.contact', {
+            duration: 0.2,
+            x: 230,
+            ease: "sine.out",
+            stagger: 0.2
+        }, ">")
+        .to('.nav li', {
+            duration: 0.3,
+            marginBottom: '40px'
+        })
+        .reverse()
+    hamburger.addEventListener('click', function (e) {
+        hamburgerMotion.reversed(!hamburgerMotion.reversed());
+    });
+} else {
+    var hamburgerMotion = gsap.timeline()
+        .to('.line03', {
+            duration: 0.4,
+            x: '-=40'
+        }, 0)
+        .to('.line01', {
+            duration: 0.4,
+            x: '+=40'
+        }, 0)
+        .from('.menu', {
+            xPercent: -100,
+            duration: 0.5
+        }, 0.5)
+        .to('.menu', {
+            xPercent: 100,
+            duration: 0.5,
+            autoAlpha: 1,
+            //x: -500
+        }, 0.5)
+        .to('.home', {
+            duration: 0.4,
+            x: 0,
+            ease: "sine.out",
+            stagger: 0.2
+        }, ">")
+        .to('.about', {
+            duration: 0.4,
+            x: 0,
+            ease: "sine.out",
+            stagger: 0.2
+        }, ">")
+        .to('.works', {
+            duration: 0.4,
+            x: 0,
+            ease: "sine.out",
+            stagger: 0.2
+        }, ">")
+        .to('.contact', {
+            duration: 0.4,
+            x: 0,
+            ease: "sine.out",
+            stagger: 0.2
+        }, ">")
+        .to('.nav li', {
+            duration: 0.5,
+            marginBottom: '40px'
+        })
+        .reverse()
+
+    hamburger.addEventListener('click', function (e) {
+        hamburgerMotion.reversed(!hamburgerMotion.reversed());
+    });
+}
+
+navLink.forEach(function (elem) {
+    elem.addEventListener('click', function (e) {
+        hamburgerMotion.reversed(true);
+    })
+});
+
+// CUSTOM CURSOR //
+
+const cursor = document.querySelector('#cursor');
+const cursorCircle = cursor.querySelector('.cursor__circle');
+
+const mouse = {
+    x: -100,
+    y: -100
+}; // mouse pointer's coordinates
+const pos = {
+    x: 0,
+    y: 0
+}; // cursor's coordinates
+const speed = 0.1; // between 0 and 1
+
+const updateCoordinates = e => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+}
+
+window.addEventListener('mousemove', updateCoordinates);
+
+function getAngle(diffX, diffY) {
+    return Math.atan2(diffY, diffX) * 180 / Math.PI;
+}
+
+function getSqueeze(diffX, diffY) {
+    const distance = Math.sqrt(
+        Math.pow(diffX, 2) + Math.pow(diffY, 2)
+    );
+    const maxSqueeze = 0.15;
+    const accelerator = 1500;
+    return Math.min(distance / accelerator, maxSqueeze);
+}
+
+
+const updateCursor = () => {
+    const diffX = Math.round(mouse.x - pos.x);
+    const diffY = Math.round(mouse.y - pos.y);
+
+    pos.x += diffX * speed;
+    pos.y += diffY * speed;
+
+    const angle = getAngle(diffX, diffY);
+    const squeeze = getSqueeze(diffX, diffY);
+
+    const scale = 'scale(' + (1 + squeeze) + ', ' + (1 - squeeze) + ')';
+    const rotate = 'rotate(' + angle + 'deg)';
+    const translate = 'translate3d(' + pos.x + 'px ,' + pos.y + 'px, 0)';
+
+    cursor.style.transform = translate;
+    cursorCircle.style.transform = rotate + scale;
+};
+
+function loop() {
+    updateCursor();
+    requestAnimationFrame(loop);
+}
+
+requestAnimationFrame(loop);
+
+const cursorModifiers = document.querySelectorAll('[cursor-class]');
+
+cursorModifiers.forEach(curosrModifier => {
+    curosrModifier.addEventListener('mouseenter', function () {
+        const className = this.getAttribute('cursor-class');
+        cursor.classList.add(className);
+    });
+
+    curosrModifier.addEventListener('mouseleave', function () {
+        const className = this.getAttribute('cursor-class');
+        cursor.classList.remove(className);
+    });
+});
+
+import Scrollbar from 'smooth-scrollbar';
+
+Scrollbar.init(document.querySelector('.my-scrollbar'), {
+    damping: 0.10,
+    renderByPixels: true,
+    continuousScrolling: true
+});
