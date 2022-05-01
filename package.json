@@ -39,9 +39,9 @@
     "gsap": "^3.10.2",
     "install": "^0.13.0",
     "jquery": "^3.6.0",
+    "locomotive-scroll": "^4.1.4",
     "npm": "^8.6.0",
     "reset-css": "^5.0.1",
-    "smooth-scrollbar": "^8.7.4",
     "swup": "^2.0.14"
   }
 }

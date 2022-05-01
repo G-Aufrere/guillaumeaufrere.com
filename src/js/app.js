@@ -24,98 +24,223 @@ import "../fonts/Excon-Regular.woff2"
 
 import "../css/app.scss"
 
+import LocomotiveScroll from 'locomotive-scroll';
+
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, CSSRulePlugin);
+
+const locoScroll = new LocomotiveScroll({
+    el: document.querySelector('#mainContent'),
+    smooth: true
+});
+
+// each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
+locoScroll.on("scroll", ScrollTrigger.update);
+
+// tell ScrollTrigger to use these proxy methods for the ".smooth-scroll" element since Locomotive Scroll is hijacking things
+ScrollTrigger.scrollerProxy("#mainContent", {
+    scrollTop(value) {
+        return arguments.length ?
+            locoScroll.scrollTo(value, 0, 0) :
+            locoScroll.scroll.instance.scroll.y;
+    }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+    getBoundingClientRect() {
+        return {
+            top: 0,
+            left: 0,
+            width: window.innerWidth,
+            height: window.innerHeight
+        };
+    },
+    // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
+    pinType: document.querySelector("#mainContent").style.transform ?
+        "transform" : "fixed"
+});
+
+// each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll.
+ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+
+// after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
+ScrollTrigger.refresh();
 
 //Section Pinning
 ScrollTrigger.matchMedia({
     "(min-width: 1200px)": function () {
-        gsap.utils.toArray(".section").forEach((section) => {
-                if (section.classList.contains('horizontal')) {
-                    const containersWrap = section.querySelector('.section__containers')
-                    const oneContainer = section.querySelector('.section__container')
-                    gsap.to(containersWrap, {
-                        //x: () => { return -( (cardsWrap.scrollWidth - window.innerWidth + window.innerWidth*0.05) + (window.innerWidth/2 - oneCard.offsetWidth/2) ) },
-                        x: () => {
-                            return -(containersWrap.scrollWidth - oneContainer.offsetWidth)
-                        },
-                        ease: "none",
-                        scrollTrigger: {
-                            trigger: section,
-                            start: () => "center center",
-                            end: () => "+=" + (containersWrap.scrollWidth - oneContainer.offsetWidth),
-                            scrub: 2,
-                            pin: true,
-                            invalidateOnRefresh: true,
-                            anticipatePin: 0,
-                        },
-                    });
-                } else {
-                    ScrollTrigger.create({
-                        trigger: section,
-                        start: () => "top top",
-                        end: "+=100px",
-                        scrub: 2,
-                        pin: true,
-                        anticipatePin: 0,
-                        //pinSpacing: true
-                    });
-                }
+        // gsap.utils.toArray(".section").forEach((section) => {
+        //         if (section.classList.contains('horizontal')) {
+        //             const containersWrap = section.querySelector('.section__containers')
+        //             const oneContainer = section.querySelector('.section__container')
+        //             gsap.to(containersWrap, {
+        //                 //x: () => { return -( (cardsWrap.scrollWidth - window.innerWidth + window.innerWidth*0.05) + (window.innerWidth/2 - oneCard.offsetWidth/2) ) },
+        //                 x: () => {
+        //                     return -(containersWrap.scrollWidth - oneContainer.offsetWidth)
+        //                 },
+        //                 ease: "none",
+        //                 scrollTrigger: {
+        //                     trigger: section,
+        //                     start: () => "center center",
+        //                     end: () => "+=" + (containersWrap.scrollWidth - oneContainer.offsetWidth),
+        //                     scrub: 2,
+        //                     pin: true,
+        //                     invalidateOnRefresh: true,
+        //                     anticipatePin: 0,
+        //                 },
+        //             });
+        //         } else {
+        //             ScrollTrigger.create({
+        //                 trigger: section,
+        //                 start: () => "top top",
+        //                 end: "+=100px",
+        //                 scrub: 2,
+        //                 pin: true,
+        //                 anticipatePin: 0,
+        //                 //pinSpacing: true
+        //             });
+        //         }
+        //     }),
+        const tlTitle = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#about',
+                start: 'top center',
+                scroller: '#mainContent'
+            }
+        })
+
+        tlTitle.to('.about_title', {
+                x: 0,
+                duration: 0.8
             }),
-            gsap.to('.about_title', {
-                scrollTrigger: {
-                    trigger: '#about',
-                    start: 'top center',
-                },
-                x: 900,
-                duration: 0.8,
-            }),
-            gsap.to('.work_title', {
-                scrollTrigger: {
-                    trigger: '#works',
-                    start: 'top center',
-                },
-                x: 850,
-                duration: 0.9,
+
+            tlTitle.fromTo('.underline', {
+                width: "0%",
+                right: "0%"
+            }, {
+                width: "100%",
+                duration: 0.8
             })
+        // gsap.to('.about_title', {
+        //         scrollTrigger: {
+        //             trigger: '#about',
+        //             start: 'top center',
+        //             scroller: '#mainContent',
+        //         },
+        //         x: 900,
+        //         duration: 0.8,
+        //     }),
+        gsap.to('.work_title', {
+            scrollTrigger: {
+                trigger: '#works',
+                start: 'top center',
+                scroller: '#mainContent',
+            },
+            x: 850,
+            duration: 0.9,
+        });
+
+        const tlBigText = gsap.timeline({
+            scrollTrigger: {
+                trigger: '.sliding-text',
+                scroller: '#mainContent',
+                start: 'bottom bottom-=100px',
+                scrub: 1
+            }
+        });
+
+        tlBigText.fromTo('.sliding-text', {
+            x: 1500
+        }, {
+            x: -3000,
+            ease: "none",
+        })
+
+        //TIMELINE ABOUT SECTION
+
+        const tlAbout = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#about',
+                start: 'top bottom',
+                end: 'center center-=200px',
+                scroller: '#mainContent',
+                scrub: 1
+            }
+        });
+
+        tlAbout.from(".grid2", {
+            y: -100,
+            duration: 1,
+            ease: "power2.inOut",
+        }, "<")
+
+        tlAbout.from(".grid3", {
+            y: -150,
+            duration: 1,
+            ease: "power2.inOut",
+        }, "<")
+
+        tlAbout.from(".grid4", {
+            y: -250,
+            duration: 1,
+            ease: "power2.inOut",
+        }, "<")
+
+        tlAbout.from(".grid5", {
+            y: -250,
+            duration: 0.8,
+            ease: "power2.inOut",
+        }, "<")
+
+        tlAbout.from(".grid6", {
+            y: -350,
+            duration: 0.8,
+            ease: "power2.inOut",
+        }, "<")
 
         //TIMELINE WORKS SECTION
 
         const tlWorks = gsap.timeline({
             scrollTrigger: {
-                trigger: '#works',
-                start: 'top center-=200px'
+                trigger: '.first-project',
+                start: 'top bottom-=300px',
+                end: 'center center',
+                scroller: '#mainContent',
             }
         })
 
-        tlWorks.fromTo(".img-project", {
-            xPercent: 150
-        }, {
-            xPercent: 0,
-            duration: 1,
-            ease: "power2.inOut"
+        tlWorks.to('.work_title', {
+            x: 850,
+            duration: 0.9
         })
 
-        tlWorks.fromTo(".title-first-project", {
-            xPercent: 150
-        }, {
-            xPercent: 0,
-            duration: 0.8,
+        tlWorks.from(".img-project", {
+            y: 150,
+            duration: 1,
             ease: "power2.inOut"
-        }, ">-0.3")
+        }, ">-0.5")
 
-        tlWorks.fromTo(".button--surtur", {
-            xPercent: 150
-        }, {
-            xPercent: 0,
+        tlWorks.from(".title-first-project", {
+            y: 300,
+            duration: 1,
+            ease: "power2.inOut"
+        }, "<")
+
+        tlWorks.from(".section__container__description", {
+            opacity: 0,
+            y: 200,
             duration: 0.8,
             ease: "power2.inOut"
-        }, ">-0.3")
+        }, "<")
+
+        tlWorks.to(".button--surtur", {
+            x: -200,
+            duration: 0.8,
+            ease: "power2.inOut"
+        }, "<")
     },
     "(min-width: 2000px)": function () {
         gsap.to('.about_title', {
                 scrollTrigger: {
                     trigger: '#about',
                     start: 'top center',
+                    scroller: '#mainContent'
                 },
                 x: 1450,
                 duration: 0.8,
@@ -124,6 +249,7 @@ ScrollTrigger.matchMedia({
                 scrollTrigger: {
                     trigger: '#works',
                     start: 'top center',
+                    scroller: '#mainContent'
                 },
                 x: 1450,
                 duration: 0.9,
@@ -132,35 +258,6 @@ ScrollTrigger.matchMedia({
 });
 
 
-//TIMELINE ABOUT SECTION
-
-const tlAbout = gsap.timeline({
-    scrollTrigger: {
-        trigger: '#about',
-        start: 'top center'
-    }
-});
-
-// tlAbout.to("#about", {
-//     duration: 1,
-//     backgroundColor: "#dfb018",
-//     ease: "none"
-// })
-
-tlAbout.to(".first_para", {
-    opacity: 1,
-    duration: 0.3,
-}, ">-0.5")
-
-tlAbout.to(".second_para", {
-    opacity: 1,
-    duration: 0.3,
-})
-
-tlAbout.to(".third_para", {
-    opacity: 1,
-    duration: 0.3,
-})
 
 gsap.to('#works', {
     scrollTrigger: {
@@ -547,7 +644,7 @@ $(window).on("load", function () {
     }, "<")
 
     tlLoader.fromTo(".btn-circle", {
-        xPercent: 120
+        xPercent: 140
     }, {
         xPercent: 0,
         duration: 0.5,

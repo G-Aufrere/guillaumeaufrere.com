@@ -294,11 +294,3 @@ cursorModifiers.forEach(curosrModifier => {
         cursor.classList.remove(className);
     });
 });
-
-import Scrollbar from 'smooth-scrollbar';
-
-Scrollbar.init(document.querySelector('.my-scrollbar'), {
-    damping: 0.10,
-    renderByPixels: true,
-    continuousScrolling: true
-});
