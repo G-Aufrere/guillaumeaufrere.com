@@ -53,7 +53,7 @@
 
     <div class="vertical-content">
         <div class="vertical-content__item__logo">
-            <a href="#home"><img src="images/logo-ga.png" class="logo_ga" alt="logo Guillaume Aufrere"
+            <a href="index.html"><img src="images/logo-ga.png" class="logo_ga" alt="logo Guillaume Aufrere"
                     cursor-class="arrow"></a>
         </div>
         <div class="vertical-content__item__socials">
@@ -66,16 +66,16 @@
         <nav class="nav">
             <ul class="nav__list">
                 <li class="nav__item home">
-                    <a class="nav__link" cursor-class="arrow" href="index.html#home">Accueil</a>
+                    <a class="nav__link" cursor-class="arrow" href="#">Accueil</a>
                 </li>
                 <li class="nav__item about">
-                    <a class="nav__link" cursor-class="arrow" href="#about">A propos</a>
+                    <a class="nav__link" cursor-class="arrow" href="#">A propos</a>
                 </li>
                 <li class="nav__item works">
-                    <a class="nav__link" cursor-class="arrow" href="#works">Works</a>
+                    <a class="nav__link" cursor-class="arrow" href="#">Works</a>
                 </li>
                 <li class="nav__item contact">
-                    <a class="nav__link" cursor-class="arrow" href="#contact">Contact</a>
+                    <a class="nav__link" cursor-class="arrow" href="#">Contact</a>
                 </li>
             </ul>
         </nav>
@@ -115,21 +115,20 @@
         <section class="section section__about" id="about">
             <div class="sliding-title">
                 <h2 class="section__title about_title">A propos</h2>
-                <span class="underline"></span>
             </div>
             <div class="section__container">
                 <div class="section__container__img column grid1">
                     <img src="images/profil-picture-428x600.webp" class="profil-picture skewElem" alt="photo Profil">
                 </div>
                 <div class="section__container__legend grid2">
-                    <p class="paragraph_img">Développeur front-end depuis 2 ans</p>
+                    <p class="text_about paragraph_img">Développeur front-end depuis 2 ans</p>
                 </div>
                 <div class="section__container__text grid3">
                     <p class="text_about first_para">
                         Je suis un <strong class="strong-dev">développeur frontend</strong> originaire de <strong
                             class="bourges__hover">Bourges</strong>, disponible pour des
                         missions
-                        freelance ou directement dans votre structure.
+                        freelance ou en contrat CDI.
                     </p>
                 </div>
                 <div class="section__container__text grid4">
@@ -148,161 +147,63 @@
                     </p>
                 </div>
                 <div class="section__container__text grid6">
-                    <p class="fourth_para">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint distinctio at
-                        sequi fugiat</p>
+                    <p class="text_about fourth_para">Je travaille principalement en Javascript pur, néanmoins je suis
+                        actuellement en train de m'orienter sur Vue.js. <br> Pour les animations j'utilise GSAP.</p>
                 </div>
             </div>
-            <div class="sliding-text">
-                <p>Développement / Animations / Refonte</p>
+            <div class="container-sliding-text">
+                <div class="sliding-text">
+                    <h3 class="title-slide">Developpement</h3>
+                </div>
+                <div class="sliding-text">
+                    <h3 class="title-slide">Animations</h3>
+                </div>
+                <div class="sliding-text">
+                    <h3 class="title-slide">Refonte</h3>
+                </div>
             </div>
         </section>
 
         <section class="section section__works" id="works">
             <h2 class="section__title work_title">Works</h2>
-            <div class="section__containers">
-                <div class="section__container first-project">
-                    <div class="section__container__img img-project" cursor-class="arrow">
-                        <a href="projets/rmstudio.html" class="link-transition"><img
-                                src="images/rmstudio-thumbnail.webp" class="img-firstProject"
-                                alt="accueil rm studio"></a>
-                    </div>
-                    <h3 class="section__title title-first-project" cursor-class="arrow">RM STUDIO</h3>
-                    <div class="section__container__description">
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio, est. Accusantium in expedita
-                            fugit pariatur ipsum impedit fuga, porro sed maxime nostrum saepe doloremque repudiandae,
-                            dolor amet ipsa aliquid dolorem?</p>
-                    </div>
-                    <a href="https://rm-studio.fr" target="_blank" rel="noopener" class="section__container__link">
-                        <button class="button button--surtur">
-                            <svg class="textcircle" viewBox="0 0 500 500">
-                                <title>Visiter le site</title>
-                                <defs>
-                                    <path id="textcircle" d="M250,400 a150,150 0 0,1 0,-300a150,150 0 0,1 0,300Z" />
-                                </defs>
-                                <text>
-                                    <textPath xlink:href="#textcircle" aria-label="Visiter le site" textLength="900">
-                                        Visiter le site Visiter</textPath>
-                                </text>
-                            </svg>
-                            <svg aria-hidden="true" class="eye" width="70" height="70" viewBox="0 0 70 70"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path class="eye__outer"
-                                    d="M10.5 35.308c5.227-7.98 14.248-13.252 24.5-13.252s19.273 5.271 24.5 13.252c-5.227 7.98-14.248 13.253-24.5 13.253s-19.273-5.272-24.5-13.253z" />
-                                <path class="eye__lashes-up"
-                                    d="M35 8.802v8.836M49.537 11.383l-3.31 8.192M20.522 11.684l3.31 8.192" />
-                                <path class="eye__lashes-down"
-                                    d="M35 61.818v-8.836 8.836zM49.537 59.237l-3.31-8.193 3.31 8.193zM20.522 58.936l3.31-8.193-3.31 8.193z" />
-                                <circle class="eye__iris" cx="35" cy="35.31" r="5.221" />
-                                <circle class="eye__inner" cx="35" cy="35.31" r="10.041" />
-                            </svg>
-                        </button>
-                    </a>
-                </div>
-                <div class="section__container">
-                    <div class="section__container__img" cursor-class="arrow">
-                        <h3 class="section__title title-pegase" cursor-class="arrow">PEGASE PROD</h3>
-                        <a href="projets/pegaseprod.html"><img src="images/pegase-1280.webp"
-                                alt="accueil pegase prod"></a>
-                        <a href="https://pegaseprod.com" target="_blank">
-                            <button class="button button--surtur">
-                                <svg class="textcircle" viewBox="0 0 500 500">
-                                    <title>Visiter le site</title>
-                                    <defs>
-                                        <path id="textcircle" d="M250,400 a150,150 0 0,1 0,-300a150,150 0 0,1 0,300Z" />
-                                    </defs>
-                                    <text>
-                                        <textPath xlink:href="#textcircle" aria-label="Visiter le site"
-                                            textLength="900">Visiter le site Visiter</textPath>
-                                    </text>
-                                </svg>
-                                <svg aria-hidden="true" class="eye" width="70" height="70" viewBox="0 0 70 70"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path class="eye__outer"
-                                        d="M10.5 35.308c5.227-7.98 14.248-13.252 24.5-13.252s19.273 5.271 24.5 13.252c-5.227 7.98-14.248 13.253-24.5 13.253s-19.273-5.272-24.5-13.253z" />
-                                    <path class="eye__lashes-up"
-                                        d="M35 8.802v8.836M49.537 11.383l-3.31 8.192M20.522 11.684l3.31 8.192" />
-                                    <path class="eye__lashes-down"
-                                        d="M35 61.818v-8.836 8.836zM49.537 59.237l-3.31-8.193 3.31 8.193zM20.522 58.936l3.31-8.193-3.31 8.193z" />
-                                    <circle class="eye__iris" cx="35" cy="35.31" r="5.221" />
-                                    <circle class="eye__inner" cx="35" cy="35.31" r="10.041" />
-                                </svg>
-                            </button>
-                        </a>
-                    </div>
-                </div>
-                <div class="section__container">
-                    <div class="section__container__img" cursor-class="arrow">
-                        <h3 class="section__title" cursor-class="arrow">PORTFOLIO 2020</h3>
-                        <a href="http://portfolio2020.guillaumeaufrere.com/" target="_blank"><img
-                                src="images/portfolio2020.webp" alt="accueil pegase prod"></a>
-                        <a href="http://portfolio2020.guillaumeaufrere.com/" target="_blank">
-                            <button class="button button--surtur">
-                                <svg class="textcircle" viewBox="0 0 500 500">
-                                    <title>Visiter le site</title>
-                                    <defs>
-                                        <path id="textcircle" d="M250,400 a150,150 0 0,1 0,-300a150,150 0 0,1 0,300Z" />
-                                    </defs>
-                                    <text>
-                                        <textPath xlink:href="#textcircle" aria-label="Visiter le site"
-                                            textLength="900">Visiter le site Visiter</textPath>
-                                    </text>
-                                </svg>
-                                <svg aria-hidden="true" class="eye" width="70" height="70" viewBox="0 0 70 70"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path class="eye__outer"
-                                        d="M10.5 35.308c5.227-7.98 14.248-13.252 24.5-13.252s19.273 5.271 24.5 13.252c-5.227 7.98-14.248 13.253-24.5 13.253s-19.273-5.272-24.5-13.253z" />
-                                    <path class="eye__lashes-up"
-                                        d="M35 8.802v8.836M49.537 11.383l-3.31 8.192M20.522 11.684l3.31 8.192" />
-                                    <path class="eye__lashes-down"
-                                        d="M35 61.818v-8.836 8.836zM49.537 59.237l-3.31-8.193 3.31 8.193zM20.522 58.936l3.31-8.193-3.31 8.193z" />
-                                    <circle class="eye__iris" cx="35" cy="35.31" r="5.221" />
-                                    <circle class="eye__inner" cx="35" cy="35.31" r="10.041" />
-                                </svg>
-                            </button>
-                        </a>
-                    </div>
-                </div>
-                <div class="section__container section_labs">
-                    <div class="section__container__img" cursor-class="arrow">
-                        <h3 class="section__title title-threejs" cursor-class="arrow">ESSAI THREE JS</h3>
-                        <a href="http://scrollbasedportfolio.guillaumeaufrere.com/" target="_blank"><img
-                                src="images/three-try.webp" alt="accueil pegase prod"></a>
-                        <a href="http://scrollbasedportfolio.guillaumeaufrere.com/" target="_blank">
-                            <button class="button button--surtur">
-                                <svg class="textcircle" viewBox="0 0 500 500">
-                                    <title>Visiter le site</title>
-                                    <defs>
-                                        <path id="textcircle" d="M250,400 a150,150 0 0,1 0,-300a150,150 0 0,1 0,300Z" />
-                                    </defs>
-                                    <text>
-                                        <textPath xlink:href="#textcircle" aria-label="Visiter le site"
-                                            textLength="900">Visiter le site Visiter</textPath>
-                                    </text>
-                                </svg>
-                                <svg aria-hidden="true" class="eye" width="70" height="70" viewBox="0 0 70 70"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path class="eye__outer"
-                                        d="M10.5 35.308c5.227-7.98 14.248-13.252 24.5-13.252s19.273 5.271 24.5 13.252c-5.227 7.98-14.248 13.253-24.5 13.253s-19.273-5.272-24.5-13.253z" />
-                                    <path class="eye__lashes-up"
-                                        d="M35 8.802v8.836M49.537 11.383l-3.31 8.192M20.522 11.684l3.31 8.192" />
-                                    <path class="eye__lashes-down"
-                                        d="M35 61.818v-8.836 8.836zM49.537 59.237l-3.31-8.193 3.31 8.193zM20.522 58.936l3.31-8.193-3.31 8.193z" />
-                                    <circle class="eye__iris" cx="35" cy="35.31" r="5.221" />
-                                    <circle class="eye__inner" cx="35" cy="35.31" r="10.041" />
-                                </svg>
-                            </button>
-                        </a>
-                    </div>
-                </div>
+            <div class="container container_webgl">
+                <ul class="container__list">
+                    <li class="container__list__item">
+                        <a href="projets/rmstudio.html"><span class="span-works">Rm studio</span></a>
+                    </li>
+                    <li class="container__list__item">
+                        <a href="projets/pegaseprod.html"><span class="span-works">Pegase prod</span></a>
+                    </li>
+                    <li class="container__list__item">
+                        <a href="http://portfolio2020.guillaumeaufrere.com/" target="_blank"><span
+                                class="span-works">Portfolio 2020</span></a>
+                    </li>
+                    <li class="container__list__item">
+                        <a href="http://scrollbasedportfolio.guillaumeaufrere.com/" target="_blank"><span
+                                class="span-works">Essai three.js</span></a>
+                    </li>
+                </ul>
             </div>
         </section>
 
         <section class="section section__contact" id="contact">
             <div class="top-content">
-                <h2 class="section__title">Contactez-moi</h2>
+                <h2 class="section__title">
+                    <span class="span-contact">C</span><span class="span-contact">o</span><span
+                        class="span-contact">n</span><span class="span-contact">t</span><span
+                        class="span-contact">a</span><span class="span-contact">c</span><span
+                        class="span-contact">t</span><span class="span-contact">e</span><span
+                        class="span-contact">z</span><span class="span-contact">-</span><span
+                        class="span-contact">m</span><span class="span-contact">o</span><span
+                        class="span-contact">i</span>
+                </h2>
                 <div class="left-content">
                     <p class="left-content__paragraph question">
-                        Une idée en tête ?
+                        <span class="span-question">Une</span>
+                        <span class="span-question">idée</span>
+                        <span class="span-question">en</span>
+                        <span class="span-question">tête</span>
+                        <span class="span-question">?</span>
                     </p>
                     <div class="btn btn_mail hbtn hb-fill-top">
                         <a class="mail_link" cursor-class="arrow" href="mailto:guillaumaufrere@gmail.com">
@@ -319,7 +220,7 @@
                     <div class="mail">
                         <p>guillaumaufrere@gmail.com</p>
                     </div>
-                    <a href="#home">
+                    <a href="#">
                         <img src="images/back-arrow.webp" class="back-arrow" cursor-class="arrow"
                             alt="flèche retour accueil">
                     </a>
@@ -334,6 +235,7 @@
 
 
     <script src="assets/app.js"></script>
+    <noscript>Vous devez activer Javascript pour naviguer sur ce site</noscript>
 
 </body>
 

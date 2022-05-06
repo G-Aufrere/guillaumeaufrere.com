@@ -7,6 +7,10 @@ import {
 } from "gsap/ScrollToPlugin";
 import CSSRulePlugin from 'gsap/CSSRulePlugin';
 import $ from "jquery";
+import * as THREE from 'three';
+import images from './images'
+import vertex from './shaders/vertex.glsl';
+import fragment from './shaders/fragment.glsl';
 
 import Accueil_Rmstudio from '../medias/Accueil_Rmstudio.mp4';
 import Scrolldown from '../medias/Scrolldown.mp4';
@@ -62,94 +66,46 @@ ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
 ScrollTrigger.refresh();
 
-//Section Pinning
+
 ScrollTrigger.matchMedia({
     "(min-width: 1200px)": function () {
-        // gsap.utils.toArray(".section").forEach((section) => {
-        //         if (section.classList.contains('horizontal')) {
-        //             const containersWrap = section.querySelector('.section__containers')
-        //             const oneContainer = section.querySelector('.section__container')
-        //             gsap.to(containersWrap, {
-        //                 //x: () => { return -( (cardsWrap.scrollWidth - window.innerWidth + window.innerWidth*0.05) + (window.innerWidth/2 - oneCard.offsetWidth/2) ) },
-        //                 x: () => {
-        //                     return -(containersWrap.scrollWidth - oneContainer.offsetWidth)
-        //                 },
-        //                 ease: "none",
-        //                 scrollTrigger: {
-        //                     trigger: section,
-        //                     start: () => "center center",
-        //                     end: () => "+=" + (containersWrap.scrollWidth - oneContainer.offsetWidth),
-        //                     scrub: 2,
-        //                     pin: true,
-        //                     invalidateOnRefresh: true,
-        //                     anticipatePin: 0,
-        //                 },
-        //             });
-        //         } else {
-        //             ScrollTrigger.create({
-        //                 trigger: section,
-        //                 start: () => "top top",
-        //                 end: "+=100px",
-        //                 scrub: 2,
-        //                 pin: true,
-        //                 anticipatePin: 0,
-        //                 //pinSpacing: true
-        //             });
-        //         }
-        //     }),
-        const tlTitle = gsap.timeline({
-            scrollTrigger: {
-                trigger: '#about',
-                start: 'top center',
-                scroller: '#mainContent'
-            }
-        })
 
-        tlTitle.to('.about_title', {
-                x: 0,
-                duration: 0.8
+        gsap.to('.about_title', {
+                scrollTrigger: {
+                    trigger: '#about',
+                    start: 'top center',
+                    scroller: '#mainContent',
+                },
+                x: 900,
+                duration: 0.8,
+                opacity: 1
             }),
-
-            tlTitle.fromTo('.underline', {
-                width: "0%",
-                right: "0%"
-            }, {
-                width: "100%",
-                duration: 0.8
-            })
-        // gsap.to('.about_title', {
-        //         scrollTrigger: {
-        //             trigger: '#about',
-        //             start: 'top center',
-        //             scroller: '#mainContent',
-        //         },
-        //         x: 900,
-        //         duration: 0.8,
-        //     }),
-        gsap.to('.work_title', {
-            scrollTrigger: {
-                trigger: '#works',
-                start: 'top center',
-                scroller: '#mainContent',
-            },
-            x: 850,
-            duration: 0.9,
-        });
+            gsap.to('.work_title', {
+                scrollTrigger: {
+                    trigger: '#works',
+                    start: 'top center',
+                    scroller: '#mainContent',
+                },
+                x: -850,
+                duration: 0.9,
+                opacity: 1
+            });
 
         const tlBigText = gsap.timeline({
             scrollTrigger: {
                 trigger: '.sliding-text',
                 scroller: '#mainContent',
-                start: 'bottom bottom-=100px',
-                scrub: 1
+                start: 'bottom bottom',
             }
         });
 
-        tlBigText.fromTo('.sliding-text', {
-            x: 1500
+        tlBigText.fromTo('.title-slide', {
+            y: '120%'
         }, {
-            x: -3000,
-            ease: "none",
+            y: '0%',
+            stagger: 0.2,
+            duration: 1,
+            ease: 'power3.inOut'
         })
 
         //TIMELINE ABOUT SECTION
@@ -158,7 +114,7 @@ ScrollTrigger.matchMedia({
             scrollTrigger: {
                 trigger: '#about',
                 start: 'top bottom',
-                end: 'center center-=200px',
+                end: 'center center-=100px',
                 scroller: '#mainContent',
                 scrub: 1
             }
@@ -184,13 +140,13 @@ ScrollTrigger.matchMedia({
 
         tlAbout.from(".grid5", {
             y: -250,
-            duration: 0.8,
+            duration: 1,
             ease: "power2.inOut",
         }, "<")
 
         tlAbout.from(".grid6", {
             y: -350,
-            duration: 0.8,
+            duration: 1,
             ease: "power2.inOut",
         }, "<")
 
@@ -198,42 +154,47 @@ ScrollTrigger.matchMedia({
 
         const tlWorks = gsap.timeline({
             scrollTrigger: {
-                trigger: '.first-project',
-                start: 'top bottom-=300px',
-                end: 'center center',
+                trigger: '#works',
+                scroller: '#mainContent',
+                start: 'top center',
+            }
+        })
+
+        tlWorks.fromTo('.span-works', {
+            y: '180%'
+        }, {
+            y: '0%',
+            stagger: 0.20,
+            duration: 1,
+            ease: 'power3.inOut'
+        })
+
+        //TIMELINE CONTACT SECTION
+
+        const tlContact = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#contact',
+                start: 'top bottom-=50px',
                 scroller: '#mainContent',
             }
         })
 
-        tlWorks.to('.work_title', {
-            x: 850,
-            duration: 0.9
+        tlContact.fromTo('.span-contact', {
+            y: '100%'
+        }, {
+            y: '0%',
+            stagger: 0.05,
+            duration: 1,
+            ease: 'power3.inOut'
         })
-
-        tlWorks.from(".img-project", {
-            y: 150,
-            duration: 1,
-            ease: "power2.inOut"
-        }, ">-0.5")
-
-        tlWorks.from(".title-first-project", {
-            y: 300,
-            duration: 1,
-            ease: "power2.inOut"
-        }, "<")
-
-        tlWorks.from(".section__container__description", {
-            opacity: 0,
-            y: 200,
-            duration: 0.8,
-            ease: "power2.inOut"
-        }, "<")
-
-        tlWorks.to(".button--surtur", {
-            x: -200,
-            duration: 0.8,
-            ease: "power2.inOut"
-        }, "<")
+        tlContact.fromTo('.span-question', {
+            y: '110%'
+        }, {
+            y: '0%',
+            stagger: 0.1,
+            duration: 0.5,
+            ease: 'power2.inOut'
+        }, ">-0.8")
     },
     "(min-width: 2000px)": function () {
         gsap.to('.about_title', {
@@ -251,13 +212,27 @@ ScrollTrigger.matchMedia({
                     start: 'top center',
                     scroller: '#mainContent'
                 },
-                x: 1450,
+                x: -1250,
                 duration: 0.9,
-            })
+            });
+
+        const tlBigText = gsap.timeline({
+            scrollTrigger: {
+                trigger: '.sliding-text',
+                scroller: '#mainContent',
+                start: 'bottom bottom',
+                scrub: 1
+            }
+        });
+
+        // tlBigText.fromTo('.sliding-text', {
+        //     x: 2800
+        // }, {
+        //     x: -5000,
+        //     ease: "none",
+        // })
     }
 });
-
-
 
 gsap.to('#works', {
     scrollTrigger: {
@@ -265,13 +240,39 @@ gsap.to('#works', {
         start: 'top center'
     },
     duration: 1,
-    //backgroundColor: "#faf9f9",
-    //backgroundColor: "#e1dfdd",
     ease: "none"
 })
 
 var hamburger = document.querySelector('.hamburger');
 let navLink = document.querySelectorAll('.nav__link');
+
+
+//LINKS SCROLLTO
+
+const home = document.querySelector('#home')
+const about = document.querySelector('#about')
+const works = document.querySelector('#works')
+const contact = document.querySelector('#contact')
+
+navLink[0].addEventListener('click', function () {
+    locoScroll.scrollTo(home)
+})
+navLink[1].addEventListener('click', function () {
+    locoScroll.scrollTo(about)
+})
+navLink[2].addEventListener('click', function () {
+    locoScroll.scrollTo(works)
+})
+navLink[3].addEventListener('click', function () {
+    locoScroll.scrollTo(contact)
+})
+document.querySelector('.back-arrow').addEventListener('click', function () {
+    locoScroll.scrollTo(home)
+})
+document.querySelector('.btn-circle').addEventListener('click', function () {
+    locoScroll.scrollTo(about)
+})
+
 
 gsap.set('.line01', {
     x: 40
@@ -651,3 +652,171 @@ $(window).on("load", function () {
         ease: "power2.inOut"
     })
 });
+
+//  THREE JS IMAGES MANIPULATION
+
+function lerp(start, end, t) {
+    return start * (1 - t) + end * t;
+}
+
+let targetX = 0;
+let targetY = 0;
+
+const textureOne = new THREE.TextureLoader().load(images.imageOne);
+const textureTwo = new THREE.TextureLoader().load(images.imageTwo);
+const textureThree = new THREE.TextureLoader().load(images.imageThree);
+const textureFour = new THREE.TextureLoader().load(images.imageFour);
+
+
+class WebGL {
+    constructor() {
+        this.container = document.querySelector('.container_webgl');
+        this.links = [...document.querySelectorAll('.container__list__item')];
+        this.scene = new THREE.Scene();
+        this.perspective = 1000;
+        this.sizes = new THREE.Vector2(0, 0);
+        this.offset = new THREE.Vector2(0, 0); // Positions of mesh on screen. Will be updated below.
+        this.uniforms = {
+            uTexture: {
+                value: new THREE.TextureLoader().load(images.imageThree)
+            },
+            uAlpha: {
+                value: 0.0
+            },
+            uOffset: {
+                value: new THREE.Vector2(0.0, 0.0)
+            }
+        }
+        this.links.forEach((link, idx) => {
+            link.addEventListener('mouseenter', () => {
+
+                switch (idx) {
+                    case 0:
+
+                        this.uniforms.uTexture.value = textureOne;
+                        break;
+                    case 1:
+                        this.uniforms.uTexture.value = textureTwo;
+                        break;
+                    case 2:
+                        this.uniforms.uTexture.value = textureThree;
+                        break;
+                    case 3:
+                        this.uniforms.uTexture.value = textureFour;
+                        break;
+                }
+            })
+
+            link.addEventListener('mouseleave', () => {
+                this.uniforms.uAlpha.value = lerp(this.uniforms.uAlpha.value, 0.0, 0.1);
+            });
+        })
+        this.addEventListeners(document.querySelector('.container__list'));
+        this.setUpCamera();
+        this.onMouseMove();
+        this.createMesh();
+        this.render()
+
+    }
+
+    get viewport() {
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+        let aspectRatio = width / height;
+
+        return {
+            width,
+            height,
+            aspectRatio
+        }
+    }
+
+    addEventListeners(element) {
+        element.addEventListener('mouseenter', () => {
+            this.linkHovered = true;
+        })
+        element.addEventListener('mouseleave', () => {
+            this.linkHovered = false;
+        })
+    }
+
+    setUpCamera() {
+        window.addEventListener('resize', this.onWindowResize.bind(this))
+
+        let fov = (180 * (2 * Math.atan(this.viewport.height / 2 / this.perspective))) / Math.PI;
+        this.camera = new THREE.PerspectiveCamera(fov, this.viewport.aspectRatio, 0.1, 1000);
+        this.camera.position.set(0, 0, this.perspective);
+
+        this.renderer = new THREE.WebGL1Renderer({
+            antialias: true,
+            alpha: true
+        });
+        this.renderer.setSize(this.viewport.width, this.viewport.height);
+        this.renderer.setPixelRatio(window.devicePixelRatio);
+        this.container.appendChild(this.renderer.domElement)
+    }
+
+    createMesh() {
+        this.geometry = new THREE.PlaneGeometry(1, 1, 20, 20);
+        this.material = new THREE.ShaderMaterial({
+            uniforms: this.uniforms,
+            vertexShader: vertex,
+            fragmentShader: fragment,
+            transparent: true,
+            // wireframe: true,
+            // side: THREE.DoubleSide
+        })
+        this.mesh = new THREE.Mesh(this.geometry, this.material);
+        this.sizes.set(350, 250, 1);
+        this.mesh.scale.set(this.sizes.x, this.sizes.y, 1);
+
+        this.mesh.position.set(this.offset.x, this.offset.y, 0);
+
+        this.scene.add(this.mesh);
+    }
+    onWindowResize() {
+
+        this.camera.aspect = this.viewport.aspectRatio;
+        this.camera.fov = (180 * (2 * Math.atan(this.viewport.height / 2 / this.perspective))) / Math.PI;
+        this.renderer.setSize(this.viewport.width, this.viewport.height);
+        this.camera.updateProjectionMatrix();
+    }
+
+    onMouseMove() {
+        window.addEventListener('mousemove', (e) => {
+            targetX = e.clientX;
+            targetY = e.clientY;
+        })
+    }
+
+    render() {
+        this.offset.x = lerp(this.offset.x, targetX, 0.1);
+        this.offset.y = lerp(this.offset.y, targetY, 0.1);
+        this.uniforms.uOffset.value.set((targetX - this.offset.x) * 0.0005, -(targetY - this.offset.y) * 0.0005)
+        // this.mesh.scale.set(this.sizes.x, this.sizes.y)
+        this.mesh.position.set(this.offset.x - (window.innerWidth / 2), -this.offset.y + (window.innerHeight / 2), 0);
+
+        // set uAlpha when list is hovered / unhovered
+        this.linkHovered ?
+            this.uniforms.uAlpha.value = lerp(this.uniforms.uAlpha.value, 1.0, 0.1) :
+            this.uniforms.uAlpha.value = lerp(this.uniforms.uAlpha.value, 0.0, 0.1);
+
+
+        for (let i = 0; i < this.links.length; i++) {
+            if (this.linkHovered) {
+                this.links[i].style.opacity = 0.2
+            } else {
+                this.links[i].style.opacity = 1
+            }
+
+
+        }
+
+        this.renderer.render(this.scene, this.camera);
+        window.requestAnimationFrame(this.render.bind(this));
+
+    }
+
+}
+
+new WebGL()

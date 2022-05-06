@@ -1,5 +1,10 @@
 import gsap from 'gsap';
-
+import {
+    ScrollTrigger
+} from "gsap/ScrollTrigger";
+import {
+    ScrollToPlugin
+} from "gsap/ScrollToPlugin";
 import $ from "jquery";
 
 import "../fonts/Avalors.woff2"
@@ -8,6 +13,44 @@ import "../fonts/Avalors.ttf"
 import "../fonts/Excon-Regular.ttf"
 import "../fonts/Excon-Regular.woff"
 import "../fonts/Excon-Regular.woff2"
+
+import LocomotiveScroll from 'locomotive-scroll';
+
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+const locoScroll = new LocomotiveScroll({
+    el: document.querySelector('.project-container'),
+    smooth: true
+});
+
+// each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
+locoScroll.on("scroll", ScrollTrigger.update);
+
+// tell ScrollTrigger to use these proxy methods for the ".smooth-scroll" element since Locomotive Scroll is hijacking things
+ScrollTrigger.scrollerProxy(".project-container", {
+    scrollTop(value) {
+        return arguments.length ?
+            locoScroll.scrollTo(value, 0, 0) :
+            locoScroll.scroll.instance.scroll.y;
+    }, // we don't have to define a scrollLeft because we're only scrolling vertically.
+    getBoundingClientRect() {
+        return {
+            top: 0,
+            left: 0,
+            width: window.innerWidth,
+            height: window.innerHeight
+        };
+    },
+    // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
+    pinType: document.querySelector(".project-container").style.transform ?
+        "transform" : "fixed"
+});
+
+// each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll.
+ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+
+// after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
+ScrollTrigger.refresh();
 
 
 const blackPage = document.querySelector('.preload-black')
@@ -159,6 +202,7 @@ if (window.matchMedia("(min-width: 1281px)").matches) {
     hamburger.addEventListener('click', function (e) {
         hamburgerMotion.reversed(!hamburgerMotion.reversed());
     });
+
 } else {
     var hamburgerMotion = gsap.timeline()
         .to('.line03', {

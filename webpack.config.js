@@ -79,12 +79,21 @@ module.exports = (env, argv) => ({
         },
       },
       {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
+      },
+      {
+        test: /\.(glsl|vs|fs|vert|frag)$/,
+        exclude: /node_modules/,
+        use: ['raw-loader']
+      },
+      {
         test: /\.(mov|mp4)$/,
         type: 'asset/resource',
         generator: {
           filename: 'videos/[hash][ext][query]'
         }
-      }
+      },
     ],
   },
   plugins: [
