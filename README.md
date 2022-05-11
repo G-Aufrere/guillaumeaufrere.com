@@ -2,6 +2,6 @@ Portfolio personnel
 
 guillaumeaufrere.com
 
-HTML/CSS/JS
+HTML/CSS/JS/GSAP/THREE/WEBGL
 
-GSAP for animations
+
