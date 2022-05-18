@@ -6,6 +6,14 @@ header {
     z-index: 2;
 }
 
+.dark-para {
+    position: absolute;
+    top: 1.25rem;
+    left: 14%;
+    text-transform: uppercase;
+    display: none;
+}
+
 #navLogo {
     position: absolute;
     width: 100px;
@@ -34,8 +42,6 @@ header {
 }
 
 .hamburger line {
-    stroke: white;
-    mix-blend-mode: difference;
     stroke-width: 6px;
 }
 
@@ -44,9 +50,8 @@ header {
     top: 0;
     left: -100vw;
     width: 100vw;
-    //width: 0;
+    background-color: #d6d6d6;
     height: 100vh;
-    background-color: #e1dfdd;
     visibility: hidden;
     z-index: 1;
 }

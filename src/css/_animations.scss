@@ -287,6 +287,10 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
+
+    img {
+        width: 5vw;
+    }
 }
 
 .loader {
@@ -304,7 +308,7 @@
 
 .preload-black {
     z-index: 7;
-    background: rgb(5, 5, 5);
+    background: #0e0e0e;
     width: 100vw;
     height: 100vh;
     position: fixed;

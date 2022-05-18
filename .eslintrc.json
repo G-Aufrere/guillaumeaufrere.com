@@ -38,10 +38,11 @@
       "error"
     ],
     "indent": [
-      "error",
-      2, {
-        "SwitchCase": 1
-      }
+        "off"
+    //  "error",
+    //  2, {
+    //    "SwitchCase": 1
+    //  }
     ],
     "key-spacing": [
       "error"
@@ -63,7 +64,7 @@
       "off"
     ],
     "no-invalid-this": [
-      "error"
+    "error"
     ],
     "no-multi-spaces": [
       "error"
@@ -103,7 +104,7 @@
     "space-before-blocks": [
       "error"
     ],
-    "space-before-function-paren": [
+    "space-before-function-parentheses": [
       "error",
       "never"
     ],

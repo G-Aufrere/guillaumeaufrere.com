@@ -12,19 +12,19 @@
     <link rel="icon" href="https://guillaumeaufrere.com/images/favicon-32.png" type="image/png" sizes="32x32">
     <link rel="icon" href="https://guillaumeaufrere.com/images/favicon-16.png" type="image/png" sizes="16x16">
     <!-- SEO -->
-    <title>Guillaume Aufrere | Développeur Frontend</title>
+    <title>Guillaume Aufrere | Développeur Web Frontend</title>
     <meta name="description" content="Guillaume Aufrere, Développeur Web front-end freelance à Bourges" />
     <meta name="google-site-verification" content="Y_rSVQhwavOAIQq19MMr5CcT2C3vPgRDESlFQszxUro" />
     <!-- FACEBOOK OG -->
     <meta property="og:url" content="https://guillaumeaufrere.com">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Guillaume Aufrere | Développeur Frontend" />
+    <meta property="og:title" content="Guillaume Aufrere | Développeur Web Front-end" />
     <meta property="og:image" content="https://guillaumeaufrere.com/images/profil-picture-428x600.png" />
     <meta property="og:description" content="Guillaume Aufrere, Développeur Web front-end freelance à Bourges">
     <!-- TWITTER CARD -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@G_Aufrere">
-    <meta name="twitter:title" content="Guillaume Aufrere | Développeur Frontend">
+    <meta name="twitter:title" content="Guillaume Aufrere | Développeur Web Front-end">
     <meta name="twitter:description" content="Guillaume Aufrere, Développeur Web front-end freelance à Bourges">
     <meta name="twitter:image" content="https://guillaumeaufrere.com/images/profil-picture-428x600.webp">
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -45,10 +45,17 @@
 
     <header>
         <svg class="hamburger" cursor-class="arrow" viewBox="0 0 80 80">
-            <line class="line01" x1="0" y1="3" x2="80" y2="3" />
-            <line class="line02" x1="0" y1="40" x2="80" y2="40" />
-            <line class="line03" x1="0" y1="77" x2="80" y2="77" />
+            <line class="line line01" x1="0" y1="3" x2="80" y2="3" stroke="currentColor" />
+            <line class="line line02" x1="0" y1="40" x2="80" y2="40" stroke="currentColor" />
+            <line class="line line03" x1="0" y1="77" x2="80" y2="77" stroke="currentColor" />
         </svg>
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="label">
+            <i class="fas fa-moon"></i>
+            <i class='fas fa-sun'></i>
+            <div class='ball'></div>
+        </label>
+        <p class="dark-para">dark mode</p>
     </header>
 
     <div class="vertical-content">
@@ -89,13 +96,13 @@
         <section id="home" class="section section__home">
             <div class="section__container">
                 <!--<h1 class="section__title">Section 1</h1>-->
-                <h1 class="section__title title_top rolling-text rolling-text__fill">
+                <h1 class="section__title title_top rolling-text rolling-text__empty">
                     GUILLAUME
                 </h1>
                 <h1 class="section__title title_midtop rolling-text rolling-text__empty">
                     AUFRERE
                 </h1>
-                <h1 class="section__title title_midbottom rolling-text rolling-text__fill">
+                <h1 class="section__title title_midbottom rolling-text rolling-text__empty">
                     DEVELOPPEUR
                 </h1>
                 <h1 class="section__title title_bottom rolling-text rolling-text__empty">
@@ -221,8 +228,11 @@
                         <p>guillaumaufrere@gmail.com</p>
                     </div>
                     <a href="#">
-                        <img src="images/back-arrow.webp" class="back-arrow" cursor-class="arrow"
-                            alt="flèche retour accueil">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="58" height="85" fill="currentColor"
+                            viewBox="0 0 58 85" class="back-arrow" cursor-class="arrow">
+                            <path fill="currentColor"
+                                d="M29.605.55c-1.878-.19-3.819.404-5.26 1.809-.019.017-.04.032-.056.051L2.769 23.93a6.57 6.57 0 0 0-1.931 4.662 6.594 6.594 0 0 0 11.257 4.662l10.263-10.262v32.95c0 .136.003.272.012.408-.004.018.27 6.888-3.807 11.163-2.415 2.531-6.161 3.815-11.131 3.815a6.593 6.593 0 1 0 0 13.188c8.792 0 15.789-2.702 20.797-8.029 7.478-7.956 7.414-18.634 7.316-20.711V22.99l10.263 10.263a6.593 6.593 0 1 0 9.326-9.324L33.614 2.41c-.018-.019-.038-.034-.056-.051A6.713 6.713 0 0 0 29.605.55Z" />
+                        </svg>
                     </a>
                 </div>
             </div>
@@ -230,7 +240,7 @@
     </main>
 
     <div class="loader-wrapper">
-        <img src="images/gif-loading.gif" alt="">
+        <img class="gif-loading" src="images/gif-loading.gif" alt="gif loading">
     </div>
 
 

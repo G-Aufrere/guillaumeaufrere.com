@@ -12,16 +12,14 @@ body {
     font-family: 'Excon-regular', sans-serif;
     width: 100vw;
     height: 100vh;
+    background: #d6d6d6;
+    color: #0e0e0e;
+    transition: background 0.2s linear;
 }
 
 canvas {
     position: absolute;
     z-index: -2;
-    background-color: #0e0e0e;
-}
-
-#mainContent {
-    background-color: #0e0e0e;
 }
 
 //BARRE VERTICALE A GAUCHE
@@ -78,21 +76,9 @@ canvas {
     &__title {
         font-family: 'Avalors';
         line-height: 1.5;
-        color: rgb(255, 255, 255);
 
         &:hover {
             cursor: auto;
-        }
-
-        &.title_top,
-        &.title_midbottom {
-            color: transparent;
-            -webkit-text-stroke: 1px white;
-        }
-
-        &.title_midtop,
-        &.title_bottom {
-            color: rgb(255, 255, 255);
         }
     }
 }
@@ -102,7 +88,6 @@ canvas {
 .section__home {
     height: 100vh;
     width: 100%;
-    background-color: #0e0e0e;
     background-position: center;
     background-size: cover;
     position: relative;
@@ -117,26 +102,14 @@ canvas {
         width: 100%;
         height: 100%;
 
-        &__title {
+        .section__title {
             font-family: 'Avalors';
             font-size: 12vmin;
             line-height: 1.5;
-            color: rgb(255, 255, 255);
 
             &:hover {
                 cursor: auto;
             }
-        }
-
-        &__title.title_top,
-        &__title.title_midbottom {
-            color: transparent;
-            -webkit-text-stroke: 1px white;
-        }
-
-        &__title.title_midtop,
-        &__title.title_bottom {
-            color: rgb(255, 255, 255);
         }
     }
 }
@@ -144,7 +117,6 @@ canvas {
 //A PROPOS
 
 .section__about {
-    background-color: #0e0e0e;
     position: relative;
     height: auto;
     width: 100%;
@@ -157,15 +129,12 @@ canvas {
         .section__title {
             position: absolute;
             font-size: 10vmin;
-            color: #c7c7c7;
             font-family: 'Avalors';
             top: 2rem;
             left: -750px;
             opacity: 0;
         }
     }
-
-
 
     .container-sliding-text {
         margin-bottom: 15rem;
@@ -183,14 +152,10 @@ canvas {
             h3 {
                 font-family: 'Avalors';
                 font-size: calc(clamp(3.25em, 8vw, 10em) * .75);
-                color: #ffffff;
                 display: inline-block;
                 position: relative;
-                //overflow: hidden;
             }
         }
-
-
     }
 
     .section__container {
@@ -204,6 +169,10 @@ canvas {
 
         .grid1 {
             grid-area: 1 / 2 / 6 / 5;
+
+            img {
+                max-width: 100%;
+            }
         }
 
         .grid2 {
@@ -235,7 +204,6 @@ canvas {
 
         &__text {
             font-family: 'Excon-regular', sans-serif;
-            color: #c7c7c7;
             line-height: 1.5rem;
 
             .text_about {
@@ -250,7 +218,7 @@ canvas {
 
                 .strong-dev {
                     font-style: italic;
-                    border-bottom: 4px solid rgb(245, 243, 243);
+                    border-bottom: 4px solid;
                 }
 
                 .bourges__hover {
@@ -279,10 +247,6 @@ canvas {
                 letter-spacing: 0.05rem;
             }
         }
-
-        p {
-            color: #c7c7c7;
-        }
     }
 }
 
@@ -295,7 +259,6 @@ canvas {
     h2 {
         position: absolute;
         font-size: 10vmin;
-        color: #c7c7c7;
         font-family: 'Avalors';
         top: 1rem;
         right: -700px;
@@ -322,14 +285,14 @@ canvas {
             &__item {
                 font-size: calc(clamp(3.25em, 5vw, 8em) * .75);
                 font-family: 'Excon-regular';
-                border-bottom: 1px solid #c7c7c7;
-                //margin: 4rem 0;
+                border-bottom: 1px solid;
                 padding: 3rem 0;
                 text-transform: uppercase;
                 transition: 1s;
                 cursor: pointer;
                 position: relative;
                 overflow: hidden;
+
 
                 span {
                     display: inline-block;
@@ -343,7 +306,7 @@ canvas {
 
                 a {
                     text-decoration: none;
-                    color: #c7c7c7;
+                    color: inherit;
                 }
             }
         }
@@ -353,7 +316,6 @@ canvas {
 .section__contact {
     height: 100vh;
     width: 100%;
-    background-color: #0e0e0e;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -363,7 +325,6 @@ canvas {
     h2.section__title {
         font-size: calc(clamp(3.25em, 7vw, 10em) * .75);
         display: inline-block;
-        color: rgb(255, 255, 255);
         font-family: 'Avalors';
         overflow: hidden;
 
@@ -386,7 +347,6 @@ canvas {
 
             &__paragraph {
                 font-size: 4vw;
-                color: rgb(255, 255, 255);
                 font-family: 'Excon-regular';
                 overflow: hidden;
 
@@ -397,8 +357,13 @@ canvas {
                 }
             }
 
+            .svg_contact {
+                align-self: flex-end;
+                max-width: 100%;
+            }
+
             .btn_mail {
-                border: 1px solid #dfb018;
+                border: 2px solid #dfb018;
                 width: auto;
                 margin-top: 2em;
                 width: fit-content;
@@ -423,7 +388,7 @@ canvas {
 
                 .mail_link {
                     text-decoration: none;
-                    color: #dfb018;
+                    color: inherit;
                     font-size: 2vw;
                     font-family: 'Excon-regular', sans-serif;
                     font-style: italic;
@@ -437,18 +402,16 @@ canvas {
             }
 
             .thankyou {
-                color: #ffffff;
                 position: absolute;
                 bottom: 1rem;
                 left: 10rem;
-                font-size: 2rem;
+                font-size: 1.25rem;
                 text-transform: uppercase;
             }
 
             .mail {
-                color: #ffffff;
                 position: absolute;
-                font-size: 2rem;
+                font-size: 1.25rem;
                 bottom: 1rem;
                 right: 16rem;
                 text-transform: uppercase;
@@ -460,6 +423,10 @@ canvas {
                 right: 4rem;
                 width: 5rem;
             }
+
+            a {
+                color: inherit;
+            }
         }
     }
 }
@@ -467,7 +434,6 @@ canvas {
 // RM STUDIO PROJECT PAGE
 
 .project-container {
-    background-color: #0e0e0e;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -475,7 +441,7 @@ canvas {
     &__title {
         font-size: 6vw;
         display: inline-block;
-        color: rgb(255, 255, 255);
+        //color: rgb(255, 255, 255);
         font-family: 'Avalors';
         padding: 5rem 0 5rem;
         margin: auto;
@@ -494,7 +460,7 @@ canvas {
         &__text {
             padding: 2rem;
             font-family: 'Excon-regular', sans-serif;
-            color: rgb(255, 255, 255);
+            //color: rgb(255, 255, 255);
             line-height: 1.5;
             font-size: 1.25rem;
             text-align: center;
@@ -642,4 +608,58 @@ canvas {
         position: fixed;
         z-index: 0;
     }
+}
+
+//dark mode
+
+body.dark {
+    background-color: #0e0e0e;
+    color: #d6d6d6;
+}
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+.label {
+    width: 50px;
+    height: 26px;
+    left: 10%;
+    top: 1rem;
+    background-color: #111;
+    display: flex;
+    border: 1px solid #d6d6d6;
+    border-radius: 50px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    position: relative;
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+.ball {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+}
+
+/*  target the elemenent after the label*/
+
+.checkbox:checked+.label .ball {
+    transform: translateX(24px);
+}
+
+.fa-moon {
+    color: pink;
+}
+
+.fa-sun {
+    color: yellow;
 }

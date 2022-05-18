@@ -12,14 +12,30 @@
     <link rel="icon" href="https://guillaumeaufrere.com/images/favicon-32.png" type="image/png" sizes="32x32">
     <link rel="icon" href="https://guillaumeaufrere.com/images/favicon-16.png" type="image/png" sizes="16x16">
     <!-- SEO -->
-    <title>Guillaume Aufrere | Développeur Frontend</title>
+    <title>Guillaume Aufrere | Développeur Web Frontend</title>
     <meta name="description" content="Guillaume Aufrere, Développeur Web front-end freelance à Bourges" />
+    <meta name="google-site-verification" content="Y_rSVQhwavOAIQq19MMr5CcT2C3vPgRDESlFQszxUro" />
     <!-- FACEBOOK OG -->
     <meta property="og:url" content="https://guillaumeaufrere.com">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Guillaume Aufrere | Développeur Frontend" />
+    <meta property="og:title" content="Guillaume Aufrere | Développeur Web Front-end" />
     <meta property="og:image" content="https://guillaumeaufrere.com/images/profil-picture-428x600.png" />
     <meta property="og:description" content="Guillaume Aufrere, Développeur Web front-end freelance à Bourges">
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@G_Aufrere">
+    <meta name="twitter:title" content="Guillaume Aufrere | Développeur Web Front-end">
+    <meta name="twitter:description" content="Guillaume Aufrere, Développeur Web front-end freelance à Bourges">
+    <meta name="twitter:image" content="https://guillaumeaufrere.com/images/profil-picture-428x600.webp">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FPL652D3FV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-FPL652D3FV');
+    </script>
 </head>
 
 <body class="preload">
@@ -30,10 +46,17 @@
     <header>
         <div id="navLogo"><a href=""></a></div>
         <svg class="hamburger" cursor-class="arrow" viewBox="0 0 80 80">
-            <line class="line01" x1="0" y1="3" x2="80" y2="3" />
-            <line class="line02" x1="0" y1="40" x2="80" y2="40" />
-            <line class="line03" x1="0" y1="77" x2="80" y2="77" />
+            <line class="line01" x1="0" y1="3" x2="80" y2="3" stroke="currentColor" />
+            <line class="line02" x1="0" y1="40" x2="80" y2="40" stroke="currentColor" />
+            <line class="line03" x1="0" y1="77" x2="80" y2="77" stroke="currentColor" />
         </svg>
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="label">
+            <i class="fas fa-moon"></i>
+            <i class='fas fa-sun'></i>
+            <div class='ball'></div>
+        </label>
+        <p class="dark-para">dark mode</p>
     </header>
 
     <div class="vertical-content project_aside">

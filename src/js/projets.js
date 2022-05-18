@@ -338,3 +338,40 @@ cursorModifiers.forEach(curosrModifier => {
         cursor.classList.remove(className);
     });
 });
+
+// DARK MODE
+
+const label = document.querySelector('.label');
+const darkPara = document.querySelector('.dark-para');
+const button = document.querySelector('#checkbox');
+
+label.addEventListener('mouseover', () => {
+    darkPara.style.display = 'block';
+});
+
+label.addEventListener('mouseleave', () => {
+    darkPara.style.display = 'none';
+});
+
+if (localStorage.getItem('mode')) {
+    if (localStorage.getItem('mode') == 'dark') {
+        modeSombre();
+    }
+}
+
+button.addEventListener('change', () => {
+    if (document.body.classList.contains('dark')) {
+        document.body.className = '';
+        darkPara.textContent = 'Dark mode';
+        localStorage.setItem('mode', 'light');
+    }
+    else {
+        modeSombre();
+    }
+});
+
+function modeSombre() {
+    document.body.className = 'dark';
+    darkPara.textContent = 'Light mode';
+    localStorage.setItem('mode', 'dark');
+}
